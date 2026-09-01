@@ -1,6 +1,6 @@
 # Projects Archive Specification
 
-**Status:** Candidate until review
+**Status:** Approved Projects Archive V1
 
 ## Purpose
 
@@ -86,4 +86,4 @@ Viewport captures are the primary visual evidence for this phase. The browser's 
 
 ## Content Update Boundaries
 
-Phase 4 establishes archive structure only. Project facts, media, English titles, and case-study content must be added from owner-approved source material. Those additions must not require a new project page or a redesigned archive architecture.
+Projects Archive V1 is frozen. Project facts, media, English titles, categories, and case-study content must be added from owner-approved source material. Those additions may activate existing status, metadata, taxonomy, and preview rules, but must not require a new project page or a redesigned archive architecture.
