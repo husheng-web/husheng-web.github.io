@@ -2,8 +2,8 @@
 
 ## 1. Executive Summary
 
-**Audit target:** `https://liucs-xanny.github.io/liu-changsheng-portfolio/`  
-**Audit date:** 2026-09-01  
+**Audit target:** `https://liucs-xanny.github.io/liu-changsheng-portfolio/`
+**Audit date:** 2026-09-01
 **Method:** live desktop and narrow-viewport inspection, DOM/semantic inspection, computed-style sampling, route inspection, and saved screenshots.
 
 The reference is a long-form, single-page portfolio that behaves like an editorial personal-brand narrative: identity first, structured profile second, project evidence third, capability connections fourth, proof fifth, and contact last. Its strongest transferable mechanism is not a particular illustration, color, or layout: it is the combination of oversized type, a stable section-number grammar, wide editorial rhythm, and metadata-rich project records.
