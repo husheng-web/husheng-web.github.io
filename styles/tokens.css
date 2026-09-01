@@ -67,9 +67,11 @@
 
   --motion-fast: 140ms;
   --motion-normal: 220ms;
+  --motion-base: var(--motion-normal);
   --motion-slow: 420ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @theme inline {
