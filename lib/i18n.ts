@@ -17,5 +17,5 @@ export function getLocalizedText(
   value: { zh?: string; en?: string } | undefined,
   locale: Locale,
 ): string {
-  return value?.[locale] ?? "[CONTENT TODO]";
+  return value?.[locale] ?? value?.zh ?? "[CONTENT TODO]";
 }

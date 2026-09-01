@@ -86,4 +86,22 @@ export const enDictionary = {
     viewProjects: "Browse projects",
     viewResume: "View resume",
   },
+  projects: {
+    heroLabel: "Project archive",
+    heroTitle: "Project archive",
+    heroDescription:
+      "A record of AI product, digital experience, service-system, and physical-product practice.",
+    featuredLabel: "Priority work",
+    featuredTitle: "Featured projects",
+    featuredDescription:
+      "Four projects currently prioritized for case-study development.",
+    indexLabel: "Complete index",
+    indexTitle: "All projects",
+    indexDescription: "A scannable index of ten portfolio projects.",
+    projectCountLabel: "projects",
+    caseStudyInProgress: "Case study in progress",
+    viewCase: "View case",
+    viewProgress: "View progress",
+    noApprovedMedia: "No approved media",
+  },
 } satisfies Dictionary;

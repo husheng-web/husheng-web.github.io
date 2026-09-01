@@ -34,7 +34,11 @@ export function createLocaleMetadata(locale: Locale, path = ""): Metadata {
 
 export function createProjectMetadata(project: Project, locale: Locale): Metadata {
   const title = getLocalizedText(project.title, locale);
-  const description = getLocalizedText(project.summary, locale);
+  const description = project.summary
+    ? getLocalizedText(project.summary, locale)
+    : locale === "zh"
+      ? `作品集项目：${title}`
+      : `Portfolio project: ${title}`;
   const path = `/projects/${project.slug}`;
 
   return {

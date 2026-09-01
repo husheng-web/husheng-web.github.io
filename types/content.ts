@@ -25,6 +25,8 @@ export interface ProjectLinks {
 }
 
 export interface Project {
+  /** Stable archive identity. Do not derive this from a filtered list position. */
+  archiveIndex: number;
   slug: string;
   title: LocalizedText & { zh: string };
   subtitle?: LocalizedText;
@@ -106,5 +108,21 @@ export interface Dictionary {
     contactPending: string;
     viewProjects: string;
     viewResume: string;
+  };
+  projects: {
+    heroLabel: string;
+    heroTitle: string;
+    heroDescription: string;
+    featuredLabel: string;
+    featuredTitle: string;
+    featuredDescription: string;
+    indexLabel: string;
+    indexTitle: string;
+    indexDescription: string;
+    projectCountLabel: string;
+    caseStudyInProgress: string;
+    viewCase: string;
+    viewProgress: string;
+    noApprovedMedia: string;
   };
 }

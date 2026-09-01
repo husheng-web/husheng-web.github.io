@@ -12,9 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.siteUrl}/${locale}${path}`,
       lastModified: new Date(),
     })),
-    ...projects.map((project) => ({
-      url: `${siteConfig.siteUrl}/${locale}/projects/${project.slug}`,
-      lastModified: new Date(),
-    })),
+    ...projects
+      .filter((project) => project.contentStatus !== "content-pending")
+      .map((project) => ({
+        url: `${siteConfig.siteUrl}/${locale}/projects/${project.slug}`,
+        lastModified: new Date(),
+      })),
   ]);
 }

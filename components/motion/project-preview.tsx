@@ -9,6 +9,7 @@ export type ProjectPreviewMode = "fixed" | "inline" | "floating";
 
 interface ProjectPreviewItem {
   id?: string;
+  index?: string;
   title: string;
   status: "content-pending" | "no-media";
 }
@@ -88,8 +89,15 @@ export function ProjectPreview({
                 onPointerMove={() => mode === "floating" && setActiveIndex(index)}
                 type="button"
               >
-                <span className="type-h3 transition-transform duration-[var(--motion-fast)] ease-[var(--ease-standard)] group-hover:translate-x-1">
-                  {item.title}
+                <span className="flex min-w-0 items-baseline gap-4">
+                  {item.index ? (
+                    <span className="type-label shrink-0 text-[var(--accent-signal)]">
+                      {item.index}
+                    </span>
+                  ) : null}
+                  <span className="type-h3 transition-transform duration-[var(--motion-fast)] ease-[var(--ease-standard)] group-hover:translate-x-1">
+                    {item.title}
+                  </span>
                 </span>
                 <span className="type-label shrink-0 text-[var(--foreground-muted)]">
                   {item.status === "content-pending"
