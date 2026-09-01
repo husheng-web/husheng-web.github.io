@@ -8,38 +8,56 @@ import { useMotionSettings } from "@/components/motion/use-motion-settings";
 export type ProjectPreviewMode = "fixed" | "inline" | "floating";
 
 interface ProjectPreviewItem {
+  id?: string;
   title: string;
   status: "content-pending" | "no-media";
 }
 
 interface ProjectPreviewProps {
   items: ProjectPreviewItem[];
+  labels?: {
+    contentPending: string;
+    contentTodo: string;
+    noApprovedMedia: string;
+  };
   mode: ProjectPreviewMode;
   replayKey: number;
 }
 
 function NeutralPreview({
   activeTitle,
+  labels,
   mode,
 }: {
   activeTitle: string;
+  labels: NonNullable<ProjectPreviewProps["labels"]>;
   mode: ProjectPreviewMode;
 }) {
   return (
     <div className="flex aspect-[4/3] min-h-44 flex-col justify-between border border-[var(--border)] bg-[var(--background-secondary)] p-5">
       <p className="type-label text-[var(--accent-signal)]">
-        {mode === "floating" ? "Floating preview, test only" : "No approved media"}
+        {mode === "floating" ? "Floating preview, test only" : labels.noApprovedMedia}
       </p>
       <p className="type-h3 max-w-[14ch]">{activeTitle}</p>
-      <p className="type-meta text-[var(--foreground-muted)]">[CONTENT TODO]</p>
+      <p className="type-meta text-[var(--foreground-muted)]">{labels.contentTodo}</p>
     </div>
   );
 }
 
-export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) {
+export function ProjectPreview({
+  items,
+  labels,
+  mode,
+  replayKey,
+}: ProjectPreviewProps) {
   const { durations, prefersReducedMotion } = useMotionSettings();
   const [activeIndex, setActiveIndex] = useState(0);
   const active = items[activeIndex];
+  const previewLabels = labels ?? {
+    contentPending: "Content pending",
+    contentTodo: "[CONTENT TODO]",
+    noApprovedMedia: "No approved media",
+  };
   const transition = {
     duration: prefersReducedMotion ? 0 : durations.base,
     ease: [0, 0, 0.2, 1] as const,
@@ -58,7 +76,10 @@ export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) 
         {items.map((item, index) => {
           const activeRow = activeIndex === index;
           return (
-            <div className="border-t border-[var(--border)]" key={item.title}>
+            <div
+              className="border-t border-[var(--border)]"
+              key={item.id ?? `${item.title}-${index}`}
+            >
               <button
                 aria-pressed={activeRow}
                 className={`group flex w-full items-center justify-between gap-4 py-4 text-left transition-[background-color,color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] active:translate-y-px ${activeRow ? "text-[var(--accent-interactive)]" : "text-[var(--foreground)]"}`}
@@ -71,7 +92,9 @@ export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) 
                   {item.title}
                 </span>
                 <span className="type-label shrink-0 text-[var(--foreground-muted)]">
-                  {item.status === "content-pending" ? "Content pending" : "No media"}
+                  {item.status === "content-pending"
+                    ? previewLabels.contentPending
+                    : previewLabels.noApprovedMedia}
                 </span>
               </button>
               {mode === "inline" && activeRow ? (
@@ -80,7 +103,11 @@ export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) 
                   initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
                   transition={transition}
                 >
-                  <NeutralPreview activeTitle={item.title} mode={mode} />
+                  <NeutralPreview
+                    activeTitle={item.title}
+                    labels={previewLabels}
+                    mode={mode}
+                  />
                 </motion.div>
               ) : null}
             </div>
@@ -94,7 +121,11 @@ export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) 
           key={active.title}
           transition={transition}
         >
-          <NeutralPreview activeTitle={active.title} mode={mode} />
+          <NeutralPreview
+            activeTitle={active.title}
+            labels={previewLabels}
+            mode={mode}
+          />
         </motion.div>
       ) : null}
       {mode === "floating" ? (
@@ -105,7 +136,11 @@ export function ProjectPreview({ items, mode, replayKey }: ProjectPreviewProps) 
           key={active.title}
           transition={transition}
         >
-          <NeutralPreview activeTitle={active.title} mode={mode} />
+          <NeutralPreview
+            activeTitle={active.title}
+            labels={previewLabels}
+            mode={mode}
+          />
         </motion.div>
       ) : null}
     </div>

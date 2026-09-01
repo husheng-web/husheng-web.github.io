@@ -73,4 +73,37 @@ export interface Dictionary {
     statusContentPending: string;
     statusTranslationPending: string;
   };
+  home: {
+    heroLabel: string;
+    heroTitle: string;
+    heroSupporting: string;
+    heroSecondary: string;
+    viewSelectedWork: string;
+    sectionLabels: {
+      selectedWorks: string;
+      howIBuild: string;
+      capabilities: string;
+      proof: string;
+      about: string;
+      contact: string;
+    };
+    sectionTitles: {
+      selectedWorks: string;
+      howIBuild: string;
+      capabilities: string;
+      proof: string;
+      about: string;
+      contact: string;
+    };
+    selectedWorksDescription: string;
+    previewNoMedia: string;
+    buildSteps: ReadonlyArray<{ index: string; title: string; description: string }>;
+    capabilityGroups: ReadonlyArray<{ title: string; status: string }>;
+    proofPending: string;
+    aboutCopy: string;
+    viewAbout: string;
+    contactPending: string;
+    viewProjects: string;
+    viewResume: string;
+  };
 }
