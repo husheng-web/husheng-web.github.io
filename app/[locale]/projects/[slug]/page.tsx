@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { FoundationPage } from "@/components/layout/foundation-page";
-import { Container } from "@/components/ui/container";
+import {
+  CaseStudyPage,
+  CaseStudyPending,
+} from "@/components/case-study/case-study-page";
+import { getCaseStudy } from "@/data/case-studies";
 import { getDictionary } from "@/data/dictionaries";
 import { getProjectBySlug } from "@/data/projects";
-import { getLocalizedText, hasLocale } from "@/lib/i18n";
+import { hasLocale } from "@/lib/i18n";
 import { createProjectMetadata } from "@/lib/metadata";
 
 interface ProjectPageProps {
@@ -29,31 +31,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!hasLocale(locale) || !project) notFound();
 
   const dictionary = getDictionary(locale);
+  const caseStudy = getCaseStudy(project.slug, locale);
 
   if (project.contentStatus === "content-pending") {
     return (
-      <Container as="section" className="py-24 sm:py-32">
-        <p className="type-label text-[var(--accent-signal)]">
-          {dictionary.projects.heroLabel}
-        </p>
-        <h1 className="type-h1 mt-5">{getLocalizedText(project.title, locale)}</h1>
-        <p className="type-body-large mt-6 text-[var(--foreground-secondary)]">
-          {dictionary.projects.caseStudyInProgress}
-        </p>
-        <Link
-          className="type-label mt-10 inline-block border-b border-current pb-1 transition-colors duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-interactive-hover)]"
-          href={`/${locale}/projects`}
-        >
-          {dictionary.navigation.projects}
-        </Link>
-      </Container>
+      <CaseStudyPending dictionary={dictionary} locale={locale} project={project} />
     );
   }
 
-  return (
-    <FoundationPage
-      dictionary={dictionary}
-      label={getLocalizedText(project.title, locale)}
-    />
-  );
+  if (!caseStudy)
+    return (
+      <CaseStudyPending dictionary={dictionary} locale={locale} project={project} />
+    );
+
+  return <CaseStudyPage content={caseStudy} locale={locale} project={project} />;
 }
