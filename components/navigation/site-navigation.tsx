@@ -10,11 +10,16 @@ import type { Dictionary, Locale } from "@/types/content";
 interface SiteNavigationProps {
   dictionary: Dictionary;
   locale: Locale;
+  showLanguageSwitch?: boolean;
 }
 
 const focusableSelector = "a[href], button:not([disabled])";
 
-export function SiteNavigation({ dictionary, locale }: SiteNavigationProps) {
+export function SiteNavigation({
+  dictionary,
+  locale,
+  showLanguageSwitch = true,
+}: SiteNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
@@ -72,7 +77,7 @@ export function SiteNavigation({ dictionary, locale }: SiteNavigationProps) {
         return (
           <Link
             aria-current={active ? "page" : undefined}
-            className={`font-mono tracking-[var(--tracking-label)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-hover)] active:translate-y-px ${active ? "text-[var(--accent)]" : "text-[var(--foreground)]"} ${mobile ? "py-3 text-base" : ""}`}
+            className={`font-mono tracking-[var(--tracking-label)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-interactive-hover)] active:translate-y-px ${active ? "text-[var(--accent-interactive)]" : "text-[var(--foreground)]"} ${mobile ? "py-3 text-base" : ""}`}
             href={item.href}
             key={item.href}
             onClick={() => mobile && setIsOpen(false)}
@@ -81,11 +86,13 @@ export function SiteNavigation({ dictionary, locale }: SiteNavigationProps) {
           </Link>
         );
       })}
-      <LanguageSwitch
-        className={mobile ? "py-3 text-base" : ""}
-        label={dictionary.navigation.language}
-        locale={locale}
-      />
+      {showLanguageSwitch ? (
+        <LanguageSwitch
+          className={mobile ? "py-3 text-base" : ""}
+          label={dictionary.navigation.language}
+          locale={locale}
+        />
+      ) : null}
     </>
   );
 

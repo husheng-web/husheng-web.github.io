@@ -110,6 +110,22 @@ a {
   letter-spacing: var(--tracking-label);
 }
 
+.type-display-xl:lang(zh),
+.type-display:lang(zh),
+.type-h1:lang(zh),
+.type-h2:lang(zh),
+.type-h3:lang(zh) {
+  letter-spacing: -0.025em;
+}
+
+.type-meta:lang(zh),
+.type-label:lang(zh),
+.type-mono-label:lang(zh),
+.skip-link:lang(zh) {
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
 .motion-fade {
   transition:
     opacity var(--motion-normal) var(--ease-standard),

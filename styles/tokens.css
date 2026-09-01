@@ -11,6 +11,10 @@
   --accent: #f04a24;
   --accent-hover: #c93617;
   --accent-foreground: #171613;
+  --accent-signal: var(--accent);
+  --accent-interactive: var(--accent);
+  --accent-interactive-hover: var(--accent-hover);
+  --accent-action: var(--accent);
   --inverse-background: #171613;
   --inverse-foreground: #f5f3ee;
 
@@ -28,7 +32,7 @@
   --type-body: 1rem;
   --type-body-small: 0.875rem;
   --type-meta: 0.75rem;
-  --type-label: 0.6875rem;
+  --type-label: 0.75rem;
 
   --leading-display: 0.9;
   --leading-heading: 1.04;

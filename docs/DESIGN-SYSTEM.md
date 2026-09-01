@@ -12,18 +12,32 @@
 
 The source of truth is `styles/tokens.css`.
 
-| Group    | Tokens                                                                                        | Intended use                                                     |
-| -------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Canvas   | `--background`, `--background-secondary`, `--surface`                                         | Reading field, alternate section, contained content              |
-| Ink      | `--foreground`, `--foreground-secondary`, `--foreground-muted`                                | Primary, supporting, and metadata text                           |
-| Boundary | `--border`, `--border-strong`                                                                 | Editorial dividers and stronger controls                         |
-| Signal   | `--accent: #F04A24`, `--accent-hover`, `--accent-foreground`                                  | Index, active state, link feedback, status point, small emphasis |
-| Inverse  | `--inverse-background`, `--inverse-foreground`                                                | Footer and high-contrast utility surface                         |
-| Rhythm   | `--space-1` through `--space-32`, `--space-section`, `--space-macro`                          | Micro, component, section, and narrative spacing                 |
-| Geometry | `--container-page`, `--container-wide`, `--container-reading`, `--edge-padding`, `--grid-gap` | Shared horizontal anchors and measures                           |
-| Motion   | `--motion-fast`, `--motion-normal`, `--motion-slow`, `--ease-standard`, `--ease-out`          | Explicit, purpose-specific transitions                           |
+| Group        | Tokens                                                                                        | Intended use                                                      |
+| ------------ | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Canvas       | `--background`, `--background-secondary`, `--surface`                                         | Reading field, alternate section, contained content               |
+| Ink          | `--foreground`, `--foreground-secondary`, `--foreground-muted`                                | Primary, supporting, and metadata text                            |
+| Boundary     | `--border`, `--border-strong`                                                                 | Editorial dividers and stronger controls                          |
+| Signal       | `--accent: #F04A24`, `--accent-hover`, `--accent-foreground`                                  | Single replaceable orange source and accessible foreground        |
+| Orange roles | `--accent-signal`, `--accent-interactive`, `--accent-interactive-hover`, `--accent-action`    | Status, interaction feedback, and rare high-commit action aliases |
+| Inverse      | `--inverse-background`, `--inverse-foreground`                                                | Footer and high-contrast utility surface                          |
+| Rhythm       | `--space-1` through `--space-32`, `--space-section`, `--space-macro`                          | Micro, component, section, and narrative spacing                  |
+| Geometry     | `--container-page`, `--container-wide`, `--container-reading`, `--edge-padding`, `--grid-gap` | Shared horizontal anchors and measures                            |
+| Motion       | `--motion-fast`, `--motion-normal`, `--motion-slow`, `--ease-standard`, `--ease-out`          | Explicit, purpose-specific transitions                            |
 
 Signal Orange is intentionally not a large background or white-text button color. Its text foreground is near-black because white does not meet normal-text contrast requirements on this orange.
+
+### Signal Orange Roles
+
+The aliases currently resolve to the same replaceable Signal Orange source. They express semantic intent without creating a second brand palette.
+
+| Role               | Use                                                        | Rule                                                     |
+| ------------------ | ---------------------------------------------------------- | -------------------------------------------------------- |
+| Signal / Status    | Important state, active status point, controlled index cue | Small, textual or icon-scale only                        |
+| Interactive        | Active navigation, selected control, link hover            | Feedback, not permanent decoration                       |
+| High-commit Action | One important, owner-approved action in a context          | Rare and small-area. It is not the default CTA treatment |
+
+**Do:** use orange sparsely, semantically, with contrast, and only when the reader benefits from emphasis.
+**Do not:** flood section backgrounds, set body copy in orange, make every CTA orange, add decorative orange marks, or create orange tags everywhere.
 
 ## 3. Typography System
 
@@ -40,9 +54,19 @@ The system uses local system fonts for resilient Chinese coverage and zero font-
 | Body       | body default                            | `1rem`                             | normal / 1.6     | Reading copy                       |
 | Body Small | `--type-body-small`                     | `0.875rem`                         | normal / 1.6     | Supporting copy                    |
 | Meta       | `.type-meta`                            | `0.75rem`                          | mono / normal    | Quiet metadata                     |
-| Label      | `.type-label`                           | `0.6875rem`                        | mono / normal    | Index and controlled labels        |
+| Label      | `.type-label`                           | `0.75rem`                          | mono / normal    | Essential metadata and labels      |
 
-Display negative tracking is limited to display/heading classes. `text-wrap: balance` avoids fragile line lengths for mixed Chinese and English titles.
+### Locale-aware tracking
+
+One typography role does not imply identical tracking in every script. The system keeps a compact Latin editorial display treatment while protecting Chinese glyph rhythm and mixed-script wrapping with minimal `:lang(zh)` overrides.
+
+| Context         | Display / heading                                                                                       | Label / technical metadata                                        | Implementation                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
+| Latin / English | `--tracking-display` and `--tracking-heading` remain tight; labels retain uppercase controlled tracking | Mono label uses `--tracking-label`                                | Default classes on an English-language element               |
+| Chinese         | Display/heading tracking is relaxed to `-0.025em`; no forced uppercase                                  | Label tracking is reduced to `0.06em`; no forced uppercase        | `:lang(zh)` selectors                                        |
+| Mixed script    | Use the page locale as the base; apply `lang="en"` only to a separately meaningful English label/value  | Do not add artificial spaces merely to imitate uppercase metadata | Semantic `lang` attributes, not duplicate typography classes |
+
+`text-wrap: balance` remains available on display levels. The 12px Label floor applies to recruiter-facing status, navigation, category, and metadata. Smaller type is reserved for nonessential decorative index or micro annotation.
 
 ## 4. Layout System
 
@@ -82,7 +106,21 @@ Display negative tracking is limited to display/heading classes. `text-wrap: bal
 
 No parallax, particles, continuous ambient animation, WebGL, or keyboard-initiated animation is part of the system.
 
-## 8. Accessibility Notes
+## 8. Future Media-frame Contract
+
+Media treatment follows content type. A Case Study may combine variants; the system must not force every asset into one rounded browser-card treatment.
+
+| Variant                        | Suitable content                                                        | Contract                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Contained UI Frame             | Product UI, website screenshot, app screen                              | Neutral containment, clear hairline boundary, optional caption                         |
+| Flush Industrial Render        | Industrial design, product render, physical object                      | Image-led presentation with minimal UI chrome; no forced browser frame                 |
+| Readable Diagram Surface       | Service blueprint, workflow, journey, AI architecture, research diagram | Neutral readable surface, responsive width and future zoom/accessibility consideration |
+| Bleedable Poster / Visual Work | Poster, branding, graphic output                                        | Edge-to-edge, visual-first treatment when source aspect ratio warrants it              |
+| Video / Motion Media           | Demonstration, walkthrough, motion output                               | Poster image, declared aspect ratio, caption, and controlled playback                  |
+
+This is a component contract only. No Case Study media component, content claim, or unapproved project image is introduced in Phase 2.
+
+## 9. Accessibility Notes
 
 - Page structure uses header, nav, main, section/article, and footer landmarks.
 - A skip link targets `#main-content`; focus-visible uses the accent outline.
@@ -91,7 +129,7 @@ No parallax, particles, continuous ambient animation, WebGL, or keyboard-initiat
 - Status uses text in addition to a colored point.
 - Contrast test: `#F04A24` against `#171613` is approximately 5.0:1 and passes normal text. White against `#F04A24` is approximately 3.6:1 and is not used as normal text.
 
-## 9. Component Usage Examples
+## 10. Component Usage Examples
 
 ```tsx
 <SectionHeader
@@ -109,4 +147,4 @@ No parallax, particles, continuous ambient animation, WebGL, or keyboard-initiat
 />
 ```
 
-The local preview route is `/dev/design-system`. It is intentionally `noindex` and includes token, type, component, status, bilingual project-title, archive, and profile-foundation stress tests.
+The local preview route is `/dev/design-system`. It is intentionally `noindex`, hides LanguageSwitch because it is not a locale route, and includes token, English/Chinese/mixed typography, 12px label, orange-role, status, archive, and profile-foundation stress tests.

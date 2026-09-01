@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 };
 
 const typeRows = [
-  ["Display XL", "type-display-xl", "AI PRODUCT"],
-  ["Display", "type-display", "SYSTEMS"],
-  ["H1", "type-h1", "Structured evidence"],
-  ["H2", "type-h2", "中文与 English together"],
-  ["H3", "type-h3", "Archive item title"],
+  ["English Display", "type-display", "AI PRODUCT SYSTEMS", "en"],
+  ["Chinese Display", "type-display", "设计智能服务系统", "zh-CN"],
+  ["Mixed Display", "type-display", "AI 产品与 Product Systems", "zh-CN"],
+  ["English Label", "type-label", "ARCHIVE / STATUS / LOCALE", "en"],
+  ["Chinese Label", "type-label", "项目档案 / 状态 / 语言", "zh-CN"],
 ] as const;
 
 export default function DesignSystemPage() {
@@ -35,7 +35,7 @@ export default function DesignSystemPage() {
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
-      <SiteHeader dictionary={enDictionary} locale="en" />
+      <SiteHeader dictionary={enDictionary} locale="en" showLanguageSwitch={false} />
       <main id="main-content">
         <WideContainer className="py-[var(--space-section)]">
           <p className="type-label text-[var(--accent)]">DEV / FOUNDATION / 02</p>
@@ -55,12 +55,14 @@ export default function DesignSystemPage() {
               title="Type is the primary hierarchy."
             />
             <div className="mt-10 space-y-8">
-              {typeRows.map(([label, className, sample]) => (
+              {typeRows.map(([label, className, sample, language]) => (
                 <div className="border-b border-[var(--border)] pb-6" key={label}>
                   <p className="type-label mb-3 text-[var(--foreground-muted)]">
                     {label}
                   </p>
-                  <p className={className}>{sample}</p>
+                  <p className={className} lang={language}>
+                    {sample}
+                  </p>
                 </div>
               ))}
               <p className="type-body-large">
@@ -112,6 +114,32 @@ export default function DesignSystemPage() {
                   <p className="type-label">--{token}</p>
                 </div>
               ))}
+            </div>
+            <div className="mt-6 grid gap-3 border-t border-[var(--border)] pt-4 md:grid-cols-3">
+              <div className="border border-[var(--border)] p-4">
+                <p className="type-label text-[var(--accent-signal)]">
+                  Signal / Status
+                </p>
+                <p className="mt-3 text-[var(--foreground-secondary)]">
+                  A controlled cue for active or important state.
+                </p>
+              </div>
+              <div className="border border-[var(--border)] p-4">
+                <p className="type-label text-[var(--accent-interactive)]">
+                  Interactive
+                </p>
+                <p className="mt-3 text-[var(--foreground-secondary)]">
+                  Link hover, active navigation, selected control.
+                </p>
+              </div>
+              <div className="border border-[var(--border)] p-4">
+                <p className="type-label text-[var(--accent-action)]">
+                  High-commit Action
+                </p>
+                <p className="mt-3 text-[var(--foreground-secondary)]">
+                  A small-area choice reserved for an important action.
+                </p>
+              </div>
             </div>
           </section>
 

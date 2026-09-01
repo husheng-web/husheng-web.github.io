@@ -22,7 +22,7 @@ export function LanguageSwitch({ locale, label, className = "" }: LanguageSwitch
   return (
     <Link
       aria-label={`Switch language to ${label}`}
-      className={`font-mono tracking-[var(--tracking-label)] text-[var(--foreground)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-hover)] active:translate-y-px ${className}`}
+      className={`font-mono tracking-[var(--tracking-label)] text-[var(--foreground)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-interactive-hover)] active:translate-y-px ${className}`}
       href={href}
       lang={alternateLocale}
     >

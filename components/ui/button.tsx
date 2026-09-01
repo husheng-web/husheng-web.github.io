@@ -18,10 +18,11 @@ interface ButtonLinkProps extends SharedButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]",
+    "bg-[var(--accent-action)] text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]",
   secondary:
     "border border-[var(--border-strong)] bg-transparent text-[var(--foreground)] hover:border-[var(--foreground)]",
-  quiet: "bg-transparent text-[var(--foreground)] hover:text-[var(--accent-hover)]",
+  quiet:
+    "bg-transparent text-[var(--foreground)] hover:text-[var(--accent-interactive-hover)]",
 };
 
 const shared =
