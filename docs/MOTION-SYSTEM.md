@@ -2,7 +2,7 @@
 
 ## Status
 
-Candidate motion system for review in P2.1. It is not yet a mandate for production pages.
+Approved production motion system. This document is the production baseline for portfolio motion; new motion patterns require a reviewed amendment rather than a page-level exception.
 
 ## Motion Principles
 
@@ -35,7 +35,7 @@ CSS source of truth: `styles/tokens.css`.
 | Standard   | 10px / 80ms        | Default reveal candidate           |
 | Expressive | 16px / 120ms       | Lab comparison only, not a default |
 
-## Typography
+## Typography Hierarchy
 
 | Candidate    | Mechanism                                                         | Suitable role                               | Decision                           |
 | ------------ | ----------------------------------------------------------------- | ------------------------------------------- | ---------------------------------- |
@@ -45,9 +45,19 @@ CSS source of truth: `styles/tokens.css`.
 
 Chinese and mixed-script samples are tested in the lab. Masking must leave enough vertical room for CJK glyph bounds. Tracking settlement must never be applied globally to Chinese.
 
+- Hero and major narrative titles: prefer Mask Rise.
+- Major section headings: use Mask Rise or Sequence when it clarifies the section order.
+- Dense case-study sections: prefer title-only reveal or static treatment.
+- Body copy and metadata: static by default.
+
+This hierarchy prevents a long case study from repeating the same animated rhythm; reading remains the primary experience.
+
 ## Section Reveal
 
 - **Recommended:** index, title, then content sequence at standard intensity.
+- Index to title delay: approximately 40–60ms.
+- Title to content delay: approximately 60–80ms.
+- The full reveal must not create noticeable waiting before reading begins.
 - **Alternative:** title-only reveal for dense reading sections.
 - **Avoid:** moving a complete section large distances or delaying body content behind long animation.
 
@@ -59,7 +69,7 @@ Chinese and mixed-script samples are tested in the lab. Masking must leave enoug
 | Inline Reveal    | Active row opens a clipped adjacent neutral/media area                 | Alternative for short lists                                                           |
 | Floating Preview | Desktop pointer comparison with focus selecting the same record        | **REJECTED** for production unless later evidence proves it does not obstruct reading |
 
-When no cover is approved, preview remains a labelled neutral state. No generated project imagery is used.
+Fixed Preview is a media-container mechanism, not a single cover-image template. It must accept a cover image, UI screenshot, industrial render, poster, diagram, video poster, or labelled neutral pending state. When no media is approved, preview remains the labelled neutral state. No generated project imagery is used.
 
 ## Media Reveal
 
@@ -104,8 +114,8 @@ When `prefers-reduced-motion: reduce` is active:
 - Avoid layout-property animation, filter animation, large persistent fixed surfaces, and `transition: all`.
 - Use Motion only for candidate semantics, not every page element.
 
-## Do / Don't
+## Production Constraints
 
 **Do:** replay predictably, use exact duration tokens, keep movement under 16px, preserve focus and content order, and make static media a valid choice.
 
-**Don't:** bounce, stagger characters, animate keyboard navigation, add ambient loops, follow the pointer on mobile, or force a page transition.
+**Don't:** bounce, stagger characters, animate keyboard navigation, add ambient loops, follow the pointer on mobile, use floating preview in production, scroll hijack, or force a route transition.
