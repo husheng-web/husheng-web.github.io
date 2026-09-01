@@ -1,0 +1,21 @@
+# dependencies and package-manager cache
+/node_modules/
+/.npm-cache/
+
+# Next.js build output
+/.next/
+/out/
+
+# local environment files
+.env*
+!.env.example
+
+# local tooling
+.DS_Store
+*.tsbuildinfo
+
+# supplied source materials; approved, optimized derivatives belong in public/media/
+/作品集文件/
+
+# local learning runtime data
+/.learnings/
