@@ -11,10 +11,12 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-body);
-  line-height: 1.5;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -28,8 +30,97 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: var(--space-3);
+  left: var(--space-3);
+  transform: translateY(-160%);
+  background: var(--inverse-background);
+  color: var(--inverse-foreground);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.type-display-xl,
+.type-display,
+.type-h1,
+.type-h2,
+.type-h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+.type-display-xl {
+  font-size: var(--type-display-xl);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+.type-display {
+  font-size: var(--type-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+.type-h1 {
+  font-size: var(--type-h1);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+.type-h2 {
+  font-size: var(--type-h2);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+.type-h3 {
+  font-size: var(--type-h3);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-heading);
+}
+.type-body-large {
+  font-size: var(--type-body-large);
+  line-height: 1.5;
+}
+
+.type-meta,
+.type-label,
+.type-mono-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.type-meta {
+  font-size: var(--type-meta);
+  letter-spacing: 0.06em;
+}
+.type-label,
+.type-mono-label {
+  font-size: var(--type-label);
+  letter-spacing: var(--tracking-label);
+}
+
+.motion-fade {
+  transition:
+    opacity var(--motion-normal) var(--ease-standard),
+    transform var(--motion-normal) var(--ease-standard);
+}
+
+.motion-project {
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
 }
 
 @media (prefers-reduced-motion: reduce) {

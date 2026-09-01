@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { LanguageSwitch } from "@/components/navigation/language-switch";
+import { SiteNavigation } from "@/components/navigation/site-navigation";
 import { Container } from "@/components/ui/container";
 import type { Dictionary, Locale } from "@/types/content";
 
@@ -10,32 +10,16 @@ interface SiteHeaderProps {
 }
 
 export function SiteHeader({ locale, dictionary }: SiteHeaderProps) {
-  const items = [
-    { href: `/${locale}/projects`, label: dictionary.navigation.projects },
-    { href: `/${locale}/about`, label: dictionary.navigation.about },
-    { href: `/${locale}/resume`, label: dictionary.navigation.resume },
-  ];
-
   return (
-    <header className="border-b border-[var(--color-border)]">
-      <Container className="flex min-h-16 items-center justify-between gap-6">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]">
+      <Container className="flex min-h-[4.0625rem] items-center justify-between gap-6">
         <Link
-          className="font-mono text-xs tracking-[0.16em] uppercase"
+          className="font-mono tracking-[var(--tracking-label)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-hover)] active:translate-y-px"
           href={`/${locale}`}
         >
           Index
         </Link>
-        <nav
-          aria-label="Primary navigation"
-          className="flex items-center gap-4 text-sm"
-        >
-          {items.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-          <LanguageSwitch locale={locale} label={dictionary.navigation.language} />
-        </nav>
+        <SiteNavigation dictionary={dictionary} locale={locale} />
       </Container>
     </header>
   );

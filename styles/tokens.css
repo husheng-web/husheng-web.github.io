@@ -1,41 +1,76 @@
 :root {
-  --color-background: #f7f7f4;
-  --color-foreground: #151515;
-  --color-surface: #ffffff;
-  --color-muted: #686868;
-  --color-border: #d8d8d2;
-  --color-accent: #2d5d5b;
+  /* Signal Orange is reserved for small, purposeful emphasis. */
+  --background: #f5f3ee;
+  --background-secondary: #e9e5dc;
+  --foreground: #171613;
+  --foreground-secondary: #4f4b45;
+  --foreground-muted: #79736b;
+  --surface: #fffefb;
+  --border: #d8d3c9;
+  --border-strong: #a59e93;
+  --accent: #f04a24;
+  --accent-hover: #c93617;
+  --accent-foreground: #171613;
+  --inverse-background: #171613;
+  --inverse-foreground: #f5f3ee;
 
-  --font-display: Arial, Helvetica, sans-serif;
-  --font-body: Arial, Helvetica, sans-serif;
+  --font-display:
+    "Arial Black", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-body: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --type-display-xl: clamp(3.5rem, 10vw, 9.5rem);
+  --type-display: clamp(2.625rem, 6vw, 6.5rem);
+  --type-h1: clamp(2rem, 4vw, 4rem);
+  --type-h2: clamp(1.625rem, 2.6vw, 2.75rem);
+  --type-h3: clamp(1.25rem, 1.7vw, 1.625rem);
+  --type-body-large: clamp(1.125rem, 1.4vw, 1.375rem);
+  --type-body: 1rem;
+  --type-body-small: 0.875rem;
+  --type-meta: 0.75rem;
+  --type-label: 0.6875rem;
+
+  --leading-display: 0.9;
+  --leading-heading: 1.04;
+  --leading-body: 1.6;
+  --tracking-display: -0.065em;
+  --tracking-heading: -0.035em;
+  --tracking-label: 0.13em;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
   --space-24: 6rem;
+  --space-32: 8rem;
+  --space-section: clamp(4.5rem, 10vw, 10rem);
+  --space-macro: clamp(6rem, 15vw, 15rem);
 
-  --container-content: 75rem;
-  --container-wide: 90rem;
-  --edge-padding: clamp(1rem, 3vw, 3rem);
+  --container-page: 76rem;
+  --container-wide: 96rem;
+  --container-reading: 45rem;
+  --edge-padding: clamp(1rem, 3.4vw, 3.5rem);
+  --grid-gap: clamp(1rem, 2vw, 2rem);
   --radius-sm: 0.125rem;
   --radius-md: 0.25rem;
 
-  --motion-fast: 160ms;
-  --motion-base: 240ms;
+  --motion-fast: 140ms;
+  --motion-normal: 220ms;
+  --motion-slow: 420ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
 }
 
 @theme inline {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-foreground);
-  --color-surface: var(--color-surface);
-  --color-muted: var(--color-muted);
-  --color-border: var(--color-border);
-  --color-accent: var(--color-accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
 }

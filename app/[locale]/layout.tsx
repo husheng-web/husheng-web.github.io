@@ -36,9 +36,12 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <html lang={locale === "zh" ? "zh-CN" : "en"}>
-      <body>
+      <body id="top">
+        <a className="skip-link" href="#main-content">
+          {dictionary.navigation.skipToContent}
+        </a>
         <SiteHeader dictionary={dictionary} locale={locale} />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <SiteFooter dictionary={dictionary} />
       </body>
     </html>

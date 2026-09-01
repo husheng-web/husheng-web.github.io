@@ -51,6 +51,11 @@ export interface Dictionary {
     about: string;
     resume: string;
     language: string;
+    menu: string;
+    closeMenu: string;
+    menuButton: string;
+    closeButton: string;
+    skipToContent: string;
   };
   shell: {
     contentPending: string;
@@ -59,5 +64,13 @@ export interface Dictionary {
     notFoundTitle: string;
     notFoundBody: string;
     returnHome: string;
+    allRightsReserved: string;
+    backToTop: string;
+    designSystem: string;
+    archive: string;
+    statusReady: string;
+    statusPartial: string;
+    statusContentPending: string;
+    statusTranslationPending: string;
   };
 }

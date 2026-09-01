@@ -6,7 +6,7 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const firstSegment = pathname.split("/")[1];
 
-  if (hasLocale(firstSegment)) {
+  if (hasLocale(firstSegment) || pathname.startsWith("/dev/")) {
     return NextResponse.next();
   }
 
