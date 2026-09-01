@@ -11,10 +11,8 @@ export function SiteFooter({ dictionary }: SiteFooterProps) {
       <Container className="grid gap-10 py-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
         <div>
           <p className="type-label text-[var(--accent)]">Portfolio system</p>
-          <p className="type-display mt-4 max-w-[10ch]">[CONTENT TODO]</p>
         </div>
         <div className="space-y-3 text-right font-mono tracking-[var(--tracking-label)] text-[var(--inverse-foreground)] text-[var(--type-label)] uppercase">
-          <p>[CONTACT TODO]</p>
           <a
             className="inline-block border-b border-current pb-1 transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent)] active:translate-y-px"
             href="#top"

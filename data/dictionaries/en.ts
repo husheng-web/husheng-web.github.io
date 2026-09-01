@@ -48,12 +48,13 @@ export const enDictionary = {
       selectedWorks: "Project archive",
       howIBuild: "From problem to working product",
       capabilities: "Capabilities need evidence",
-      proof: "Experience and outcomes pending",
+      proof: "Practice record",
       about: "AI Product Builder",
       contact: "Continue through the portfolio system",
     },
     selectedWorksDescription:
       "Four priority projects. Their material will be added after it is confirmed.",
+    caseStudyInProgress: "Case study in progress",
     previewNoMedia: "No approved media",
     buildSteps: [
       {
@@ -72,17 +73,16 @@ export const enDictionary = {
       { index: "06", title: "Validate", description: "Testing / feedback / iteration" },
     ],
     capabilityGroups: [
-      { title: "Product & Strategy", status: "[CONTENT TODO]" },
-      { title: "Experience & Systems", status: "[CONTENT TODO]" },
-      { title: "AI Product", status: "[CONTENT TODO]" },
-      { title: "Build & Communication", status: "[CONTENT TODO]" },
+      { title: "Product & Strategy" },
+      { title: "Experience & Systems" },
+      { title: "AI Product" },
+      { title: "Build & Communication" },
     ],
-    proofPending:
-      "Education, experience, and outcome details are pending confirmation.",
+    proofPending: "",
     aboutCopy:
       "A Product & Service Design background, focused on AI Product and Intelligent Service Systems.",
     viewAbout: "Learn more",
-    contactPending: "Contact details and a personal statement are pending.",
+    contactPending: "",
     viewProjects: "Browse projects",
     viewResume: "View resume",
   },

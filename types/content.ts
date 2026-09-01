@@ -96,9 +96,10 @@ export interface Dictionary {
       contact: string;
     };
     selectedWorksDescription: string;
+    caseStudyInProgress: string;
     previewNoMedia: string;
     buildSteps: ReadonlyArray<{ index: string; title: string; description: string }>;
-    capabilityGroups: ReadonlyArray<{ title: string; status: string }>;
+    capabilityGroups: ReadonlyArray<{ title: string }>;
     proofPending: string;
     aboutCopy: string;
     viewAbout: string;

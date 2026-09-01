@@ -3,7 +3,6 @@
 import { ProjectPreview } from "@/components/motion/project-preview";
 import { SectionHeader } from "@/components/ui/section-header";
 import { TextLink } from "@/components/ui/text-link";
-import { getLocalizedText } from "@/lib/i18n";
 import type { Dictionary, Locale, Project } from "@/types/content";
 
 interface SelectedWorksProps {
@@ -37,11 +36,11 @@ export function SelectedWorks({ dictionary, locale, projects }: SelectedWorksPro
               project.contentStatus === "content-pending"
                 ? "content-pending"
                 : "no-media",
-            title: getLocalizedText(project.title, locale),
+            title: project.title[locale] ?? project.title.zh,
           }))}
           labels={{
-            contentPending: dictionary.shell.statusContentPending,
-            contentTodo: dictionary.shell.contentPending,
+            contentPending: dictionary.home.caseStudyInProgress,
+            contentTodo: dictionary.home.caseStudyInProgress,
             noApprovedMedia: dictionary.home.previewNoMedia,
           }}
           mode="fixed"

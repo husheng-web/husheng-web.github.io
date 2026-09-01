@@ -21,10 +21,7 @@ export function ContactFinale({
         <h2 id="contact-title" className="type-display mt-8 max-w-[12ch]">
           {dictionary.home.sectionTitles.contact}
         </h2>
-        <div className="mt-12 grid gap-8 border-t border-[color:color-mix(in_srgb,var(--inverse-foreground)_30%,transparent)] pt-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-          <p className="max-w-[32rem] text-[color:color-mix(in_srgb,var(--inverse-foreground)_68%,transparent)]">
-            {dictionary.home.contactPending}
-          </p>
+        <div className="mt-12 border-t border-[color:color-mix(in_srgb,var(--inverse-foreground)_30%,transparent)] pt-5">
           <div className="flex flex-wrap gap-x-6 gap-y-4">
             <TextLink
               className="text-[var(--inverse-foreground)] hover:text-[var(--accent)]"

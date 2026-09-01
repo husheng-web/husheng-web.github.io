@@ -21,9 +21,6 @@ export function CapabilityPreview({ dictionary }: { dictionary: Dictionary }) {
           >
             <p className="type-label text-[var(--foreground-muted)]">0{index + 1}</p>
             <h3 className="type-h3 mt-5">{group.title}</h3>
-            <p className="type-meta mt-8 text-[var(--foreground-muted)]">
-              {group.status}
-            </p>
           </li>
         ))}
       </ul>
