@@ -28,3 +28,5 @@ Replace the foundation Projects route with a bilingual, data-driven editorial ar
 - A public archive never exposes `[CONTENT TODO]` for the current pending registry.
 - Pending rows are not links; ready and partial records can become links through the same component.
 - The route has localized metadata and no horizontal overflow at 375, 390, 768, 1024, and 1440 pixels.
+- Featured work does not reserve a large preview region while every featured record lacks approved media.
+- A uniform pending status is explained once at index-section level rather than repeated across all rows.

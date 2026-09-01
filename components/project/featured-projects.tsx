@@ -1,5 +1,6 @@
 import { ProjectPreview } from "@/components/motion/project-preview";
 import { SectionHeader } from "@/components/ui/section-header";
+import { hasApprovedMedia } from "@/data/projects";
 import { getLocalizedText } from "@/lib/i18n";
 import type { Dictionary, Locale, Project } from "@/types/content";
 
@@ -14,6 +15,8 @@ export function FeaturedProjects({
   locale,
   projects,
 }: FeaturedProjectsProps) {
+  const previewAvailable = hasApprovedMedia(projects);
+
   return (
     <section
       aria-labelledby="featured-projects-title"
@@ -45,6 +48,7 @@ export function FeaturedProjects({
           }}
           mode="fixed"
           replayKey={0}
+          showPreview={previewAvailable}
         />
       </div>
     </section>

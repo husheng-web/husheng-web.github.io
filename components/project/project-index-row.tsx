@@ -7,6 +7,7 @@ interface ProjectIndexRowProps {
   dictionary: Dictionary;
   locale: Locale;
   project: Project;
+  showStatus?: boolean;
 }
 
 function getActionLabel(status: ContentStatus, dictionary: Dictionary): string {
@@ -15,7 +16,12 @@ function getActionLabel(status: ContentStatus, dictionary: Dictionary): string {
   return dictionary.projects.caseStudyInProgress;
 }
 
-export function ProjectIndexRow({ dictionary, locale, project }: ProjectIndexRowProps) {
+export function ProjectIndexRow({
+  dictionary,
+  locale,
+  project,
+  showStatus = true,
+}: ProjectIndexRowProps) {
   const title = getLocalizedText(project.title, locale);
   const action = getActionLabel(project.contentStatus, dictionary);
   const metadata = [project.categories?.[0], project.year].filter(Boolean);
@@ -34,12 +40,14 @@ export function ProjectIndexRow({ dictionary, locale, project }: ProjectIndexRow
           </p>
         ) : null}
       </div>
-      <span
-        className="type-label shrink-0 text-[var(--foreground-muted)]"
-        data-status={project.contentStatus}
-      >
-        {action}
-      </span>
+      {showStatus ? (
+        <span
+          className="type-label shrink-0 text-[var(--foreground-muted)]"
+          data-status={project.contentStatus}
+        >
+          {action}
+        </span>
+      ) : null}
     </article>
   );
 

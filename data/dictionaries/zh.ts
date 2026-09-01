@@ -89,10 +89,11 @@ export const zhDictionary = {
     indexLabel: "完整索引",
     indexTitle: "全部项目",
     indexDescription: "10 个项目的可扫描档案索引。",
+    indexUniformPendingNote: "当前项目案例均在整理中。",
     projectCountLabel: "个项目",
     caseStudyInProgress: "案例整理中",
     viewCase: "查看案例",
     viewProgress: "查看阶段内容",
-    noApprovedMedia: "尚无已确认媒体",
+    noApprovedMedia: "媒体待补充",
   },
 } satisfies Dictionary;

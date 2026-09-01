@@ -23,6 +23,7 @@ interface ProjectPreviewProps {
   };
   mode: ProjectPreviewMode;
   replayKey: number;
+  showPreview?: boolean;
 }
 
 function NeutralPreview({
@@ -50,6 +51,7 @@ export function ProjectPreview({
   labels,
   mode,
   replayKey,
+  showPreview = true,
 }: ProjectPreviewProps) {
   const { durations, prefersReducedMotion } = useMotionSettings();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -67,7 +69,7 @@ export function ProjectPreview({
   return (
     <div
       className={
-        mode === "fixed"
+        mode === "fixed" && showPreview
           ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.72fr)]"
           : "relative"
       }
@@ -122,7 +124,7 @@ export function ProjectPreview({
           );
         })}
       </div>
-      {mode === "fixed" ? (
+      {mode === "fixed" && showPreview ? (
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 6 }}

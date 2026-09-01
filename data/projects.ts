@@ -1,4 +1,4 @@
-import type { Project } from "@/types/content";
+import type { ContentStatus, Project } from "@/types/content";
 
 export const projects = [
   {
@@ -93,6 +93,28 @@ export function getProjects(): readonly Project[] {
 
 export function getFeaturedProjects(): readonly Project[] {
   return projects.filter((project) => project.featured);
+}
+
+/** A Registry media asset is only present after it has been approved for display. */
+export function hasApprovedProjectMedia(project: Project): boolean {
+  return Boolean(project.cover || project.thumbnail);
+}
+
+export function hasApprovedMedia(projectsToCheck: readonly Project[]): boolean {
+  return projectsToCheck.some(hasApprovedProjectMedia);
+}
+
+export function getSharedContentStatus(
+  projectsToCheck: readonly Project[],
+): ContentStatus | undefined {
+  const [firstProject] = projectsToCheck;
+  if (!firstProject) return undefined;
+
+  return projectsToCheck.every(
+    (project) => project.contentStatus === firstProject.contentStatus,
+  )
+    ? firstProject.contentStatus
+    : undefined;
 }
 
 export const featuredProjects = getFeaturedProjects();

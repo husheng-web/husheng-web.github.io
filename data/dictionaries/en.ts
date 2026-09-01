@@ -98,10 +98,11 @@ export const enDictionary = {
     indexLabel: "Complete index",
     indexTitle: "All projects",
     indexDescription: "A scannable index of ten portfolio projects.",
+    indexUniformPendingNote: "All listed case studies are currently in progress.",
     projectCountLabel: "projects",
     caseStudyInProgress: "Case study in progress",
     viewCase: "View case",
     viewProgress: "View progress",
-    noApprovedMedia: "No approved media",
+    noApprovedMedia: "Media pending",
   },
 } satisfies Dictionary;

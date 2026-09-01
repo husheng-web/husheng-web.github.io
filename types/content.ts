@@ -119,6 +119,7 @@ export interface Dictionary {
     indexLabel: string;
     indexTitle: string;
     indexDescription: string;
+    indexUniformPendingNote: string;
     projectCountLabel: string;
     caseStudyInProgress: string;
     viewCase: string;

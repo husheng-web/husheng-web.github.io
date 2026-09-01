@@ -14,7 +14,7 @@ The Projects route is the portfolio's complete evidence archive. It makes the re
 
 ## Featured Logic
 
-Featured work is obtained through `getFeaturedProjects()`. Desktop uses the approved Fixed Preview interaction. Mobile retains the list and a static neutral preview region, with no hover dependency.
+Featured work is obtained through `getFeaturedProjects()`. Its preview is a progressive enhancement, controlled by the availability rule below. Mobile remains list-first and has no hover dependency.
 
 ## Complete Archive Logic
 
@@ -49,7 +49,18 @@ Pending project detail routes are not linked from the archive or listed in the s
 
 ## Media Rules
 
-The featured preview is a flexible media container, not a universal cover template. It may later contain an approved cover, UI screenshot, industrial render, poster, diagram, video poster, or neutral pending state. Current Registry records have no approved media, so only the neutral state renders.
+The featured preview is a flexible media container, not a universal cover template. It may later contain an approved cover, UI screenshot, industrial render, poster, diagram, video poster, or neutral pending state for an individual project without media.
+
+## Preview Availability Rule
+
+- **0 approved featured media:** render the Featured list in full-width archive mode. Do not show a large neutral media container.
+- **At least 1 approved featured media:** render the approved Archive List plus Fixed Preview layout. A hovered or focused featured project without its own media may use the restrained neutral state.
+
+The Preview API, keyboard focus behavior, and media mapping remain in place in both states. The no-media layout changes only the presentation condition, not the future interaction contract.
+
+## Repeated Pending-State Presentation Rule
+
+When every project in the Complete Index has the same `content-pending` status, present one section-level status explanation and suppress the repetitive row-level label. The Registry keeps every individual status. If statuses diverge, row-level status presentation returns automatically.
 
 ## Taxonomy Rules
 
