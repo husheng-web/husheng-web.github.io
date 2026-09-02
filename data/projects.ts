@@ -10,7 +10,7 @@ export const projects = [
     },
     summary: { zh: "从 Generate → Compose 重构的 AI 旅行产品案例。" },
     period: "2026-06-06 — ongoing",
-    categories: ["AI Product"],
+    categories: ["AI 产品"],
     roles: {
       zh: "AI Product Lead / Solo Builder（V2）；Team Lead / AI Product Lead（V1）",
     },

@@ -12,5 +12,10 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   if (!hasLocale(locale)) notFound();
 
-  return <FoundationPage dictionary={getDictionary(locale)} label="About" />;
+  return (
+    <FoundationPage
+      dictionary={getDictionary(locale)}
+      label={locale === "zh" ? "关于" : "About"}
+    />
+  );
 }

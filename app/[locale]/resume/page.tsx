@@ -12,5 +12,10 @@ export default async function ResumePage({ params }: ResumePageProps) {
 
   if (!hasLocale(locale)) notFound();
 
-  return <FoundationPage dictionary={getDictionary(locale)} label="Resume" />;
+  return (
+    <FoundationPage
+      dictionary={getDictionary(locale)}
+      label={locale === "zh" ? "简历" : "Resume"}
+    />
+  );
 }

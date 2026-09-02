@@ -43,7 +43,7 @@ export function ProjectArchiveItem({
         ))}
       </div>
       <span className="font-mono tracking-[var(--tracking-label)] text-[var(--foreground-muted)] text-[var(--type-label)] uppercase">
-        {hasCase ? "View case" : dictionary.shell.comingSoon}
+        {hasCase ? dictionary.projects.viewCase : dictionary.shell.comingSoon}
       </span>
     </article>
   );
@@ -52,7 +52,7 @@ export function ProjectArchiveItem({
 
   return (
     <Link
-      aria-label={`View ${title}`}
+      aria-label={`${dictionary.projects.viewCase}：${title}`}
       className="block hover:bg-[var(--background-secondary)]"
       href={`/${locale}/projects/${project.slug}`}
     >
