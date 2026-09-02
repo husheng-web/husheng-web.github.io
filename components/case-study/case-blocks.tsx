@@ -13,22 +13,26 @@ import type {
 } from "@/types/case-study";
 
 export function CaseSection({
+  className = "",
   children,
   description,
   index,
+  size = "reading",
   title,
 }: {
+  className?: string;
   children: ReactNode;
   description?: string;
   index: string;
+  size?: "page" | "wide" | "reading";
   title: string;
 }) {
   return (
     <section
       aria-labelledby={`case-section-${index}`}
-      className="py-[var(--space-section)]"
+      className={`py-[var(--space-section)] ${className}`}
     >
-      <Container size="reading">
+      <Container size={size}>
         <header className="border-t border-[var(--border)] pt-4">
           <p className="type-label text-[var(--accent-signal)]">{index}</p>
           <h2 className="type-h2 mt-5" id={`case-section-${index}`}>
