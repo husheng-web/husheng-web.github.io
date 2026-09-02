@@ -4,9 +4,18 @@ export const projects = [
   {
     archiveIndex: 1,
     slug: "pinlvtu",
-    title: { zh: "拼旅途" },
+    title: { zh: "拼旅途", en: "Trip Compose" },
+    subtitle: {
+      zh: "将旅行内容转化为可理解的旅途积木，让用户在 AI 建议下拼出并调整自己的旅程。",
+    },
+    summary: { zh: "从 Generate → Compose 重构的 AI 旅行产品案例。" },
+    period: "2026-06-06 — ongoing",
+    categories: ["AI Product"],
+    roles: {
+      zh: "AI Product Lead / Solo Builder（V2）；Team Lead / AI Product Lead（V1）",
+    },
     featured: true,
-    contentStatus: "content-pending",
+    contentStatus: "partial",
     translationStatus: "pending",
   },
   {

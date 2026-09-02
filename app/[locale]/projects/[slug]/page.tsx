@@ -5,6 +5,7 @@ import {
   CaseStudyPage,
   CaseStudyPending,
 } from "@/components/case-study/case-study-page";
+import { PinlvtuCase } from "@/components/case-study/pinlvtu-case";
 import { getCaseStudy } from "@/data/case-studies";
 import { getDictionary } from "@/data/dictionaries";
 import { getProjectBySlug } from "@/data/projects";
@@ -37,6 +38,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <CaseStudyPending dictionary={dictionary} locale={locale} project={project} />
     );
+  }
+
+  if (project.slug === "pinlvtu" && locale === "zh") {
+    return <PinlvtuCase project={project} />;
   }
 
   if (!caseStudy)

@@ -26,8 +26,16 @@ function renderBlock(block: CaseBlock) {
   return <CaseMedia media={block.media} />;
 }
 
-export function CaseHero({ locale, project }: { locale: Locale; project: Project }) {
-  const title = getLocalizedText(project.title, locale);
+export function CaseHero({
+  displayTitle,
+  locale,
+  project,
+}: {
+  displayTitle?: string;
+  locale: Locale;
+  project: Project;
+}) {
+  const title = displayTitle ?? getLocalizedText(project.title, locale);
   const category = project.categories?.[0];
   return (
     <section className="border-b border-[var(--border)] py-[clamp(4rem,9vw,8rem)]">

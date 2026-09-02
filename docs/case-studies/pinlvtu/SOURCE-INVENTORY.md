@@ -1,11 +1,24 @@
 # 拼旅途 Source Inventory
 
-## Search result
+## Authoritative source package
 
-No workspace file was discovered with a filename matching `拼旅途`, `旅拆拆`, `旅行`, `抖音 AI`, or `黑客松`.
+The following frozen materials are the sole evidence source for the first public Chinese case study. They remain outside the web repository and must not be rewritten by implementation work.
 
-| Source file               | What it supports                             | Confidence | Public-use status | Missing information                      |
-| ------------------------- | -------------------------------------------- | ---------- | ----------------- | ---------------------------------------- |
-| No confirmed source found | No project fact, media, workflow, or outcome | High       | Not usable        | All project narrative and media evidence |
+| Source file                                                                            | Purpose                                                               | Public-use status               |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------- |
+| `D:\\code\\lvxing\\PINLVTU\\portfolio-materials\\CASE-STUDY-DRAFT-ZH-V2.md`            | Chinese narrative, roles, evidence boundaries, outcome and reflection | Authoritative copy source       |
+| `D:\\code\\lvxing\\PINLVTU\\portfolio-materials\\CASE-STUDY-WEB-MAP.md`                | Reading order and section mapping                                     | Authoritative structural source |
+| `D:\\code\\lvxing\\PINLVTU\\portfolio-materials\\CASE-STUDY-MEDIA-MANIFEST.md`         | Media readiness and provenance                                        | Authoritative media source      |
+| `D:\\code\\lvxing\\PINLVTU\\portfolio-materials\\CASE-STUDY-DIAGRAM-SPECIFICATIONS.md` | D01-D05 diagram meaning and boundaries                                | Authoritative diagram source    |
 
-`作品集文件/商业bp.pdf` was not treated as a project source because its filename does not establish a relationship to 拼旅途 and its text extraction dependency is unavailable in this environment.
+## Public media admitted in this integration
+
+Only Ready assets from the manifest are copied into `public/media/projects/pinlvtu/`: P01 Feed, P02 Chapter, P04 Selection, P05 Canvas default, P05 Canvas intent-only, P07 Companion, and P08 Share.
+
+The V1 screenshot remains excluded because it requires owner review. No third-party media is used.
+
+## Evidence boundary
+
+- V1 was a rules and Mock based hackathon prototype, not real video analysis, multimodal execution, or a production backend.
+- V2 includes deterministic demo and fallback behavior. It must not be described as fully implemented multimodal capability.
+- The V1 third-prize statement is owner-confirmed in the frozen draft. V2 regional-contest rank remains unconfirmed.
