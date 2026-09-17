@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 import { useMotionSettings } from "@/components/motion/use-motion-settings";
-import { Container, WideContainer } from "@/components/ui/container";
-import { TextLink } from "@/components/ui/text-link";
+import { ButtonLink } from "@/components/ui/button";
 import type { Dictionary, Locale } from "@/types/content";
 
 interface HomeHeroProps {
@@ -13,55 +14,119 @@ interface HomeHeroProps {
 }
 
 export function HomeHero({ dictionary, locale }: HomeHeroProps) {
-  const { heroLabel, heroSecondary, heroSupporting, viewSelectedWork } =
-    dictionary.home;
-  const { durations, prefersReducedMotion } = useMotionSettings();
-  const lines =
-    locale === "zh"
-      ? ["设计并构建", "AI 产品与", "智能服务系统"]
-      : ["AI PRODUCT BUILDER", "INTELLIGENT SERVICE", "SYSTEM DESIGNER"];
+  const isZh = locale === "zh";
+  const { prefersReducedMotion } = useMotionSettings();
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    offset: ["start start", "end start"],
+    target: heroRef,
+  });
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -42]);
+  const visualY = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const visualScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
+  const dotGridY = useTransform(scrollYProgress, [0, 1], [0, 54]);
+  const introY = useTransform(scrollYProgress, [0, 1], [0, -18]);
+  const titleMotion = prefersReducedMotion
+    ? { initial: false }
+    : { initial: { opacity: 0 }, animate: { opacity: 1 } };
+  const visualMotion = prefersReducedMotion
+    ? { initial: false }
+    : {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+      };
 
   return (
-    <section
-      aria-labelledby="home-title"
-      className="py-12 sm:min-h-[calc(100svh-4.0625rem)] sm:py-[clamp(5rem,9vw,8rem)]"
-    >
-      <WideContainer className="flex flex-col">
-        <div className="flex items-center justify-between gap-4 border-t border-[var(--border)] pt-4">
-          <p className="type-label text-[var(--accent-signal)]">01 / {heroLabel}</p>
-          <p className="type-label text-right text-[var(--foreground-muted)]">
-            {heroSecondary}
-          </p>
-        </div>
-        <h1
-          className="type-display-xl mt-16 max-w-[12ch] text-[clamp(3.5rem,8.5vw,9.5rem)] sm:mt-[clamp(5rem,9vh,8rem)]"
-          id="home-title"
-          lang={locale === "zh" ? "zh-CN" : "en"}
+    <section className="portfolio-hero" aria-labelledby="home-title" ref={heroRef}>
+      <div className="portfolio-hero__grid">
+        <motion.div
+          className="portfolio-hero__title-block"
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.58,
+            ease: [0, 0, 0.2, 1],
+          }}
+          style={prefersReducedMotion ? undefined : { y: titleY }}
+          {...titleMotion}
         >
-          {lines.map((line, index) => (
-            <span className="block overflow-hidden" key={line}>
-              <motion.span
-                animate={{ opacity: 1, y: 0 }}
-                className="block"
-                initial={prefersReducedMotion ? false : { opacity: 0.99, y: 2 }}
-                transition={{
-                  delay: prefersReducedMotion ? 0 : index * 0.06,
-                  duration: prefersReducedMotion ? 0 : durations.slow,
-                  ease: [0, 0, 0.2, 1],
-                }}
-              >
-                {line}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
-        <Container className="mx-0 mt-16 grid gap-6 border-t border-[var(--border)] pt-5 sm:mt-[clamp(4rem,7vh,6rem)] md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-          <p className="type-body-large max-w-[42rem] text-[var(--foreground-secondary)]">
-            {heroSupporting}
+          <h1
+            id="home-title"
+            className="type-display-xl portfolio-hero__title"
+            lang={isZh ? "zh-CN" : "en"}
+          >
+            {isZh ? (
+              <>
+                <span>设计并构建</span>
+                <span>AI 产品与</span>
+                <span>
+                  智能服务系统<span className="portfolio-hero__period">.</span>
+                </span>
+              </>
+            ) : (
+              "AI Product Builder"
+            )}
+          </h1>
+        </motion.div>
+
+        <motion.div
+          aria-hidden="true"
+          className="portfolio-hero__visual"
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.68,
+            delay: prefersReducedMotion ? 0 : 0.1,
+            ease: [0, 0, 0.2, 1],
+          }}
+          style={prefersReducedMotion ? undefined : { scale: visualScale, y: visualY }}
+          {...visualMotion}
+        >
+          <motion.span
+            className="portfolio-hero__dot-grid"
+            style={prefersReducedMotion ? undefined : { y: dotGridY }}
+          />
+          <Image
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 75rem) 46vw, (min-width: 48rem) 50vw, 112vw"
+            src="/media/brand/hero-portrait-original.png"
+          />
+        </motion.div>
+
+        <motion.div
+          className="portfolio-hero__intro"
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+          animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.42,
+            delay: prefersReducedMotion ? 0 : 0.12,
+            ease: [0, 0, 0.2, 1],
+          }}
+          style={prefersReducedMotion ? undefined : { y: introY }}
+        >
+          <p className="type-body-large portfolio-hero__copy">
+            {dictionary.home.heroSupporting}
           </p>
-          <TextLink href={`/${locale}#selected-works`}>{viewSelectedWork}</TextLink>
-        </Container>
-      </WideContainer>
+          <motion.div
+            className="portfolio-hero__actions"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.38,
+              delay: prefersReducedMotion ? 0 : 0.2,
+              ease: [0, 0, 0.2, 1],
+            }}
+          >
+            <ButtonLink
+              href={`/${locale}/projects`}
+              className="portfolio-hero__cta rounded-[var(--radius-pill)]"
+            >
+              {dictionary.home.viewSelectedWork}
+              <span aria-hidden="true" className="portfolio-hero__cta-arrow">
+                →
+              </span>
+            </ButtonLink>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

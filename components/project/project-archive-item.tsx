@@ -19,7 +19,8 @@ export function ProjectArchiveItem({
   project,
 }: ProjectArchiveItemProps) {
   const title = getLocalizedText(project.title, locale);
-  const hasCase = project.contentStatus !== "content-pending";
+  const hasCase =
+    project.contentStatus !== "content-pending" && project.slug !== "pinlvtu";
   const body = (
     <article className="motion-project grid gap-5 border-t border-[var(--border)] py-5 md:grid-cols-[4rem_minmax(12rem,1.25fr)_minmax(10rem,0.75fr)_auto] md:items-start md:gap-8">
       <span className="font-mono tracking-[var(--tracking-label)] text-[var(--accent)] text-[var(--type-label)]">

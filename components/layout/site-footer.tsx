@@ -3,27 +3,29 @@ import type { Dictionary } from "@/types/content";
 
 interface SiteFooterProps {
   dictionary: Dictionary;
+  locale?: "zh" | "en";
 }
 
-export function SiteFooter({ dictionary }: SiteFooterProps) {
+export function SiteFooter({ dictionary, locale = "en" }: SiteFooterProps) {
   return (
-    <footer className="mt-[var(--space-macro)] border-t border-[var(--border)] bg-[var(--inverse-background)] text-[var(--inverse-foreground)]">
-      <Container className="grid gap-10 py-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-        <div>
-          <p className="type-label text-[var(--accent)]">
-            {dictionary.shell.footerLabel}
+    <footer className="portfolio-site-footer">
+      <Container className="portfolio-site-footer__inner">
+        <div className="portfolio-site-footer__brand">
+          <p>
+            {locale === "zh" ? "作品集" : "Portfolio"}
+            <span className="text-[var(--accent)]">.</span>
           </p>
+          <span>{locale === "zh" ? "AI 产品设计师" : "AI Product Designer"}</span>
         </div>
-        <div className="space-y-3 text-right font-mono tracking-[var(--tracking-label)] text-[var(--inverse-foreground)] text-[var(--type-label)] uppercase">
+        <p className="portfolio-site-footer__statement">PEOPLE · IDEAS · PRODUCTS</p>
+        <div className="portfolio-site-footer__meta">
           <a
-            className="inline-block border-b border-current pb-1 transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent)] active:translate-y-px"
+            className="transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent)] active:translate-y-px"
             href="#top"
           >
             {dictionary.shell.backToTop}
           </a>
-          <p className="text-[color:color-mix(in_srgb,var(--inverse-foreground)_55%,transparent)]">
-            {dictionary.shell.allRightsReserved}
-          </p>
+          <p>{dictionary.shell.allRightsReserved}</p>
         </div>
       </Container>
     </footer>

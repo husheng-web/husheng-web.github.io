@@ -17,6 +17,14 @@ export interface MediaAsset {
   height: number;
 }
 
+export interface ProjectCaseDocument {
+  pageCount: number;
+  pageWidth: number;
+  pageHeight: number;
+  presentation?: "phone" | "continuous";
+  fileExtension?: "png" | "webp";
+}
+
 export interface ProjectLinks {
   liveUrl?: string;
   prototypeUrl?: string;
@@ -43,11 +51,15 @@ export interface Project {
   translationStatus: TranslationStatus;
   cover?: MediaAsset;
   thumbnail?: MediaAsset;
+  /** Locally hosted case-study page images derived from user-supplied project materials. */
+  caseDocument?: ProjectCaseDocument;
   links?: ProjectLinks;
 }
 
 export interface Dictionary {
   navigation: {
+    brandName: string;
+    brandRole: string;
     home: string;
     projects: string;
     about: string;

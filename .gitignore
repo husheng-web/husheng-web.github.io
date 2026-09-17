@@ -5,6 +5,7 @@
 # Next.js build output
 /.next/
 /out/
+/tmp/
 
 # local environment files
 .env*
@@ -13,6 +14,16 @@
 # local tooling
 .DS_Store
 *.tsbuildinfo
+/.next-dev.log
+/artifacts/
+/feishu-husheng-portfolio/
+/tmp-chrome-*/
+/tmp-*.png
+
+# deployment exclusions
+/public/media/projects/**/project.pdf
+/public/media/prototypes/
+/public/media/reference/
 
 # supplied source materials; approved, optimized derivatives belong in public/media/
 /作品集文件/

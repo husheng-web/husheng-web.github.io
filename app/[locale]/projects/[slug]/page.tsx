@@ -5,15 +5,20 @@ import {
   CaseStudyPage,
   CaseStudyPending,
 } from "@/components/case-study/case-study-page";
-import { PinlvtuCase } from "@/components/case-study/pinlvtu-case";
 import { getCaseStudy } from "@/data/case-studies";
 import { getDictionary } from "@/data/dictionaries";
-import { getProjectBySlug } from "@/data/projects";
+import { getProjectBySlug, projects } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
 import { createProjectMetadata } from "@/lib/metadata";
 
 interface ProjectPageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export function generateStaticParams() {
+  return projects
+    .filter((project) => project.slug !== "pinlvtu")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({
@@ -22,14 +27,16 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const project = getProjectBySlug(slug);
 
-  return hasLocale(locale) && project ? createProjectMetadata(project, locale) : {};
+  return hasLocale(locale) && project && project.slug !== "pinlvtu"
+    ? createProjectMetadata(project, locale)
+    : {};
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale, slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!hasLocale(locale) || !project) notFound();
+  if (!hasLocale(locale) || !project || project.slug === "pinlvtu") notFound();
 
   const dictionary = getDictionary(locale);
   const caseStudy = getCaseStudy(project.slug, locale);
@@ -38,10 +45,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return (
       <CaseStudyPending dictionary={dictionary} locale={locale} project={project} />
     );
-  }
-
-  if (project.slug === "pinlvtu" && locale === "zh") {
-    return <PinlvtuCase project={project} />;
   }
 
   if (!caseStudy)

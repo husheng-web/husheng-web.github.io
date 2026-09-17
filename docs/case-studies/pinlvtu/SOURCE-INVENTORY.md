@@ -15,10 +15,17 @@ The following frozen materials are the sole evidence source for the first public
 
 Only Ready assets from the manifest are copied into `public/media/projects/pinlvtu/`: P01 Feed, P02 Chapter, P04 Selection, P05 Canvas default, P05 Canvas intent-only, P07 Companion, and P08 Share.
 
-The V1 screenshot remains excluded because it requires owner review. No third-party media is used.
+On 2026-09-14, the owner additionally supplied event-material evidence for the V1 project. The public site now uses a curated subset under `public/media/projects/pinlvtu/event/`:
+
+- `event-poster.jpg`: V1 project display board at the hackathon venue.
+- `team-collaboration.jpg`: in-event collaboration and Demo preparation.
+- `award-stage.jpg`: stage photo showing the V1 team receiving the third-prize award.
+- `award-certificate.jpg`: award plaque and event board.
+
+The V1 route-editor screenshot remains excluded because it requires owner review. No third-party travel media is used.
 
 ## Evidence boundary
 
 - V1 was a rules and Mock based hackathon prototype, not real video analysis, multimodal execution, or a production backend.
 - V2 includes deterministic demo and fallback behavior. It must not be described as fully implemented multimodal capability.
-- The V1 third-prize statement is owner-confirmed in the frozen draft. V2 regional-contest rank remains unconfirmed.
+- The V1 third-prize statement is now supported by owner-supplied event photos and award-plaque imagery. V2 regional-contest rank remains unconfirmed.

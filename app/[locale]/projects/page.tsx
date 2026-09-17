@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { FeaturedProjects } from "@/components/project/featured-projects";
-import { ProjectIndex } from "@/components/project/project-index";
-import { ProjectsHero } from "@/components/project/projects-hero";
-import { Container } from "@/components/ui/container";
+import { ProjectsArchiveGrid } from "@/components/project/projects-archive-grid";
 import { getDictionary } from "@/data/dictionaries";
-import { getFeaturedProjects, getProjects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
 import { createLocaleMetadata } from "@/lib/metadata";
 
@@ -37,16 +34,6 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const projects = getProjects();
 
   return (
-    <>
-      <ProjectsHero dictionary={dictionary} projectCount={projects.length} />
-      <Container>
-        <FeaturedProjects
-          dictionary={dictionary}
-          locale={locale}
-          projects={getFeaturedProjects()}
-        />
-        <ProjectIndex dictionary={dictionary} locale={locale} projects={projects} />
-      </Container>
-    </>
+    <ProjectsArchiveGrid dictionary={dictionary} locale={locale} projects={projects} />
   );
 }

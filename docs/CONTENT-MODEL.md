@@ -99,7 +99,7 @@ Rules:
 
 | Slug                     | Supplied name      | Featured | Content status  | Translation status |
 | ------------------------ | ------------------ | -------: | --------------- | ------------------ |
-| `pinlvtu`                | 拼旅途             |      yes | content-pending | pending            |
+| `pinlvtu`                | 拼旅途             |      yes | partial         | pending            |
 | `hepai-pro`              | 和拍 Pro           |      yes | content-pending | pending            |
 | `academic-assistant`     | AI 学术助手        |      yes | content-pending | pending            |
 | `ixdc-website`           | 国际体验设计奖官网 |      yes | content-pending | pending            |
@@ -109,8 +109,11 @@ Rules:
 | `service-product-system` | 服务产品系统设计   |       no | content-pending | pending            |
 | `kids-swimming-aid`      | 儿童游泳辅具设计   |       no | content-pending | pending            |
 | `smart-comb`             | 智能梳子           |       no | content-pending | pending            |
+| `muscle-motion`          | 肌动派             |       no | content-pending | pending            |
+| `baomi-tuanzi`           | 苞米团子           |       no | content-pending | pending            |
+| `dolphin-neck-pillow`    | 软萌萌海豚 U 型枕  |       no | content-pending | pending            |
 
-The title `和拍 Pro` is retained exactly as supplied. A local filename uses `合拍社区.pdf`; this is a naming discrepancy requiring owner confirmation, not evidence that the two are identical.
+The title `和拍 Pro` is retained exactly as supplied. The supplied source material is presented as cover media only; its local filename `合拍社区.pdf` does not change the public project name or establish additional project facts.
 
 ## 5. MDX case-study block contract
 

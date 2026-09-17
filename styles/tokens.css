@@ -1,45 +1,57 @@
 :root {
-  /* Signal Orange is reserved for small, purposeful emphasis. */
-  --background: #f5f3ee;
-  --background-secondary: #e9e5dc;
-  --foreground: #171613;
-  --foreground-secondary: #4f4b45;
-  --foreground-muted: #79736b;
-  --surface: #fffefb;
-  --border: #d8d3c9;
-  --border-strong: #a59e93;
-  --accent: #f04a24;
-  --accent-hover: #c93617;
-  --accent-foreground: #171613;
+  --background: #e2e2df;
+  --background-secondary: #d7d7d3;
+  --foreground: #070607;
+  --foreground-secondary: #5d5d5a;
+  --foreground-muted: #74746f;
+  --surface: #f7f6f2;
+  --surface-linen: #eeece5;
+  --border: #bcbcb7;
+  --border-strong: #070607;
+  --accent: #fc5000;
+  --accent-hover: #d94000;
+  --accent-foreground: #070607;
+  --plasma-violet: #524ae9;
+  --sulfur: #f5f28e;
   --accent-signal: var(--accent);
-  --accent-interactive: var(--accent);
-  --accent-interactive-hover: var(--accent-hover);
+  --accent-interactive: var(--foreground);
+  --accent-interactive-hover: var(--accent);
   --accent-action: var(--accent);
-  --inverse-background: #171613;
-  --inverse-foreground: #f5f3ee;
+  --inverse-background: #070607;
+  --inverse-foreground: #ffffff;
+
+  /* Caldera reference aliases: names keep component intent visible. */
+  --color-ember: var(--accent);
+  --color-plasma-violet: var(--plasma-violet);
+  --color-sulfur: var(--sulfur);
+  --color-limestone: var(--surface);
+  --color-pumice: var(--background);
+  --color-obsidian: var(--foreground);
+  --color-chalk: var(--inverse-foreground);
 
   --font-display:
-    "Arial Black", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-body: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    "Arial Narrow", "Roboto Condensed", "PingFang SC", "Microsoft YaHei", Arial,
+    sans-serif;
+  --font-body: "Geist", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  --font-mono: "Geist Mono", "SFMono-Regular", Consolas, monospace;
 
-  --type-display-xl: clamp(3.5rem, 10vw, 9.5rem);
-  --type-display: clamp(2.625rem, 6vw, 6.5rem);
-  --type-h1: clamp(2rem, 4vw, 4rem);
-  --type-h2: clamp(1.625rem, 2.6vw, 2.75rem);
-  --type-h3: clamp(1.25rem, 1.7vw, 1.625rem);
-  --type-body-large: clamp(1.125rem, 1.4vw, 1.375rem);
+  --type-display-xl: clamp(3.8rem, 9.2vw, 10.5rem);
+  --type-display: clamp(3rem, 6.3vw, 7.2rem);
+  --type-h1: clamp(2.35rem, 4vw, 4.5rem);
+  --type-h2: clamp(2rem, 3vw, 3.25rem);
+  --type-h3: clamp(1.625rem, 1.8vw, 2rem);
+  --type-body-large: clamp(1rem, 1.35vw, 1.125rem);
   --type-body: 1rem;
   --type-body-small: 0.875rem;
   --type-meta: 0.75rem;
   --type-label: 0.75rem;
 
   --leading-display: 0.9;
-  --leading-heading: 1.04;
-  --leading-body: 1.6;
+  --leading-heading: 1.15;
+  --leading-body: 1.55;
   --tracking-display: -0.065em;
-  --tracking-heading: -0.035em;
-  --tracking-label: 0.13em;
+  --tracking-heading: 0.02em;
+  --tracking-label: 0.04em;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -54,16 +66,18 @@
   --space-20: 5rem;
   --space-24: 6rem;
   --space-32: 8rem;
-  --space-section: clamp(4.5rem, 10vw, 10rem);
-  --space-macro: clamp(6rem, 15vw, 15rem);
+  --space-section: clamp(5rem, 8vw, 7.5rem);
+  --space-macro: clamp(6rem, 12vw, 11rem);
 
-  --container-page: 76rem;
-  --container-wide: 96rem;
+  --container-page: 80rem;
+  --container-wide: 90rem;
   --container-reading: 45rem;
-  --edge-padding: clamp(1rem, 3.4vw, 3.5rem);
+  --edge-padding: clamp(1.25rem, 3vw, 2.5rem);
   --grid-gap: clamp(1rem, 2vw, 2rem);
-  --radius-sm: 0.125rem;
-  --radius-md: 0.25rem;
+  --radius-sm: 1rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2.5rem;
+  --radius-pill: 999px;
 
   --motion-fast: 140ms;
   --motion-normal: 220ms;

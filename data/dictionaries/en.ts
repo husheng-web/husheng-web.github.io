@@ -2,6 +2,8 @@ import type { Dictionary } from "@/types/content";
 
 export const enDictionary = {
   navigation: {
+    brandName: "Hu Sheng",
+    brandRole: "AI Product Designer",
     home: "Home",
     projects: "Projects",
     about: "About",
@@ -33,9 +35,9 @@ export const enDictionary = {
     heroLabel: "Portfolio",
     heroTitle: "AI Product Builder / Intelligent Service System Designer",
     heroSupporting:
-      "Focused on AI products, intelligent service systems, and taking ideas through to working prototypes.",
+      "I'm Hu Sheng, an AI Product Designer focused on turning complex AI capabilities into clear, useful product experiences that create real value.",
     heroSecondary: "Product & Service Designer",
-    viewSelectedWork: "View selected work",
+    viewSelectedWork: "View my work",
     sectionLabels: {
       selectedWorks: "Selected works",
       howIBuild: "How I build",
@@ -47,7 +49,7 @@ export const enDictionary = {
     sectionTitles: {
       selectedWorks: "Project archive",
       howIBuild: "From problem to working product",
-      capabilities: "Capabilities need evidence",
+      capabilities: "Product capability, from insight to delivery",
       proof: "Practice record",
       about: "AI Product Builder",
       contact: "Continue through the portfolio system",
@@ -97,7 +99,7 @@ export const enDictionary = {
       "Four projects currently prioritized for case-study development.",
     indexLabel: "Complete index",
     indexTitle: "All projects",
-    indexDescription: "A scannable index of ten portfolio projects.",
+    indexDescription: "A scannable archive of the complete portfolio.",
     indexUniformPendingNote: "All listed case studies are currently in progress.",
     projectCountLabel: "projects",
     caseStudyInProgress: "Case study in progress",

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { CaseSection } from "@/components/case-study/case-blocks";
-import { CaseHero } from "@/components/case-study/case-study-page";
+import { PinlvtuEraHero } from "@/components/case-study/pinlvtu-era-hero";
 import {
   CapabilityBoundaryDiagram,
   GenerateComposeDiagram,
@@ -92,6 +92,59 @@ function DetailCrop({
   );
 }
 
+function EventEvidence() {
+  const evidence = [
+    {
+      alt: "拼旅途项目展板与黑客松现场",
+      caption: "黑客松现场：项目展板呈现“拆攻略、拼路线”的 V1 概念。",
+      height: 1066,
+      src: `${media}event/event-poster.jpg`,
+      width: 1600,
+    },
+    {
+      alt: "拼旅途团队在黑客松现场协作",
+      caption: "黑客松现场协作与 Demo 准备。",
+      height: 1066,
+      src: `${media}event/team-collaboration.jpg`,
+      width: 1600,
+    },
+    {
+      alt: "拼旅途团队领取抖音 AI 创变者计划三等奖",
+      caption: "抖音 AI 创变者计划 2026 黑客松联赛：V1 获交流赛三等奖。",
+      height: 1066,
+      src: `${media}event/award-stage.jpg`,
+      width: 1600,
+    },
+    {
+      alt: "拼旅途三等奖奖牌与奖项展板",
+      caption: "三等奖奖牌与活动奖项展板。",
+      height: 2887,
+      src: `${media}event/award-certificate.jpg`,
+      width: 3850,
+    },
+  ];
+
+  return (
+    <div className="mt-9 grid gap-5 md:grid-cols-2">
+      {evidence.map((item) => (
+        <figure key={item.src}>
+          <Image
+            alt={item.alt}
+            className="h-auto w-full border border-[var(--border)] bg-[var(--surface)]"
+            height={item.height}
+            sizes="(min-width: 768px) 44vw, 100vw"
+            src={item.src}
+            width={item.width}
+          />
+          <figcaption className="type-meta mt-3 text-[var(--foreground-muted)]">
+            {item.caption}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 function InterfaceStory({
   eyebrow,
   title,
@@ -112,24 +165,22 @@ function InterfaceStory({
 
 export function PinlvtuCase({ project }: { project: Project }) {
   return (
-    <>
-      <CaseHero displayTitle="拼旅途" locale="zh" project={project} />
-      <Container className="border-b border-[var(--border)] py-5">
-        <div className="flex items-center gap-4">
-          <span className="type-label text-[var(--foreground-muted)]">V1 / 生成</span>
-          <span aria-hidden="true" className="h-px flex-1 bg-[var(--border)]" />
-          <span className="type-label text-[var(--accent)]">生成 → 拼合</span>
-          <span aria-hidden="true" className="h-px flex-1 bg-[var(--accent)]" />
-          <span className="type-label text-[var(--accent)]">V2 / 拼合</span>
-        </div>
-      </Container>
-      <Container className="py-10">
-        <p className="type-label">黑客松起点</p>
-        <p className="type-body-large mt-4 max-w-[50rem]">
+    <article className="pinlvtu-case">
+      <PinlvtuEraHero project={project} />
+      <section className="pinlvtu-case__signal">
+        <Container className="pinlvtu-case__signal-inner">
+          <span>从生成，到拼合</span>
+          <span aria-hidden="true">→</span>
+          <span>用户始终拥有确认权</span>
+        </Container>
+      </section>
+      <Container className="pinlvtu-case__overview">
+        <p className="type-label">项目概览 / 黑客松起点</p>
+        <p className="pinlvtu-case__statement">
           拼旅途从“生成 → 拼合”重构 AI 旅行产品，让用户在 AI
           建议下拼出并调整自己的旅程。
         </p>
-        <dl className="mt-8 grid gap-4 border-y border-[var(--border)] py-5 md:grid-cols-4">
+        <dl className="pinlvtu-case__facts">
           <div>
             <dt className="type-label">职责</dt>
             <dd className="mt-2">AI 产品负责人 / 独立构建者（V2）</dd>
@@ -150,7 +201,7 @@ export function PinlvtuCase({ project }: { project: Project }) {
       </Container>
       <CaseSection index="01" title="背景">
         <p>
-          旅行攻略的问题，不只是信息太多，而是用户很难把零散建议拼成一段真正适合自己的旅程。
+          旅行攻略的问题，不只是信息太多，而是用户很难把零散建议拼成一段真正适合自己的旅程。这个起点来自基于团队旅行经验形成的探索性假设，不代表系统性用户研究。
         </p>
         <p>
           V1「旅拆拆」由 3
@@ -303,11 +354,16 @@ export function PinlvtuCase({ project }: { project: Project }) {
         index="07"
         title="结果与反思"
       >
+        <p>
+          V1「旅拆拆」在抖音 AI 创变者计划 2026
+          黑客松联赛中获得交流赛三等奖；项目现场、协作和领奖资料作为可见证据保留。
+        </p>
+        <EventEvidence />
         <p>我从使用 AI 工具，走到理解 AI 产品工作流、用户控制与能力边界。</p>
         <p>
           未来探索：陌生人拼团旅行，以及多人共同记录和沉淀旅程。这是未来方向，不是当前已实现功能。
         </p>
       </CaseSection>
-    </>
+    </article>
   );
 }

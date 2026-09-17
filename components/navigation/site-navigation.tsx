@@ -77,7 +77,7 @@ export function SiteNavigation({
         return (
           <Link
             aria-current={active ? "page" : undefined}
-            className={`font-mono tracking-[var(--tracking-label)] text-[var(--type-label)] uppercase transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-interactive-hover)] active:translate-y-px ${active ? "text-[var(--accent-interactive)]" : "text-[var(--foreground)]"} ${mobile ? "py-3 text-base" : ""}`}
+            className={`text-base transition-[color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:text-[var(--accent-interactive-hover)] active:translate-y-px ${active ? "font-semibold text-[var(--foreground)]" : "text-[var(--foreground-secondary)]"} ${mobile ? "py-3" : ""}`}
             href={item.href}
             key={item.href}
             onClick={() => mobile && setIsOpen(false)}
@@ -110,7 +110,7 @@ export function SiteNavigation({
         aria-label={
           isOpen ? dictionary.navigation.closeMenu : dictionary.navigation.menu
         }
-        className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--border)] font-mono tracking-[var(--tracking-label)] text-[var(--type-label)] uppercase transition-[border-color,color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:border-[var(--foreground)] active:translate-y-px md:hidden"
+        className="inline-flex min-h-10 items-center justify-center rounded-[var(--radius-pill)] border border-[var(--border-strong)] px-4 text-sm transition-[border-color,color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] hover:border-[var(--accent)] hover:text-[var(--accent)] active:translate-y-px md:hidden"
         onClick={() => setIsOpen((open) => !open)}
         ref={buttonRef}
         type="button"
@@ -120,7 +120,7 @@ export function SiteNavigation({
       {isOpen ? (
         <nav
           aria-label="Mobile navigation"
-          className="fixed inset-x-0 top-[4.0625rem] bottom-0 z-40 flex flex-col bg-[var(--background)] px-[var(--edge-padding)] py-8"
+          className="fixed inset-x-0 top-[4.75rem] bottom-0 z-40 flex flex-col bg-[var(--background)] px-[var(--edge-padding)] py-8"
           id="site-mobile-menu"
           ref={menuRef}
         >

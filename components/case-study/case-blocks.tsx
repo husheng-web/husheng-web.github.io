@@ -33,7 +33,7 @@ export function CaseSection({
       className={`py-[var(--space-section)] ${className}`}
     >
       <Container size={size}>
-        <header className="border-t border-[var(--border)] pt-4">
+        <header className="case-section__header">
           <p className="type-label text-[var(--accent-signal)]">{index}</p>
           <h2 className="type-h2 mt-5" id={`case-section-${index}`}>
             {title}
@@ -44,7 +44,7 @@ export function CaseSection({
             </p>
           ) : null}
         </header>
-        <div className="mt-10 space-y-8">{children}</div>
+        <div className="case-section__content">{children}</div>
       </Container>
     </section>
   );
@@ -97,7 +97,7 @@ export function CaseDiagram({ media }: { media: CaseMedia }) {
 
 export function CaseInsight({ block }: { block: CaseInsightBlock }) {
   return (
-    <dl className="grid gap-6 border-y border-[var(--border)] py-6 sm:grid-cols-3">
+    <dl className="case-insight">
       {[
         ["Evidence", block.evidence],
         ["Insight", block.insight],
@@ -117,12 +117,9 @@ export function CaseDecision({ children }: { children: ReactNode }) {
 
 export function CaseProcess({ block }: { block: CaseProcessBlock }) {
   return (
-    <ol className="border-y border-[var(--border)]">
+    <ol className="case-process">
       {block.steps.map((step, index) => (
-        <li
-          className="grid gap-3 border-t border-[var(--border)] py-4 first:border-t-0 sm:grid-cols-[2rem_1fr]"
-          key={step.label}
-        >
+        <li className="case-process__item" key={step.label}>
           <span className="type-label text-[var(--accent-signal)]">
             {String(index + 1).padStart(2, "0")}
           </span>
@@ -145,7 +142,7 @@ export function CaseResult({
   block: CaseResultBlock | CaseComparisonBlock;
 }) {
   return (
-    <dl className="grid gap-4 border-y border-[var(--border)] py-5 sm:grid-cols-2">
+    <dl className="case-result">
       {block.items.map((item) => (
         <div key={item.label}>
           <dt className="type-label text-[var(--foreground-muted)]">{item.label}</dt>

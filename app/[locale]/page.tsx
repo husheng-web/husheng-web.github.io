@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { AboutPreview } from "@/components/home/about-preview";
-import { BuildProcess } from "@/components/home/build-process";
-import { CapabilityPreview } from "@/components/home/capability-preview";
-import { ContactFinale } from "@/components/home/contact-finale";
+import { HomeAboutProfile } from "@/components/home/home-about-profile";
 import { HomeHero } from "@/components/home/home-hero";
-import { ProofPreview } from "@/components/home/proof-preview";
-import { SelectedWorks } from "@/components/home/selected-works";
-import { Container } from "@/components/ui/container";
+import { PortfolioHome } from "@/components/home/portfolio-home";
+import { HomeScrollProgress } from "@/components/motion/home-scroll-motion";
 import { getDictionary } from "@/data/dictionaries";
-import { featuredProjects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 import { hasLocale } from "@/lib/i18n";
 import { createLocaleMetadata } from "@/lib/metadata";
 
@@ -41,19 +37,10 @@ export default async function HomePage({ params }: LocalizedPageProps) {
 
   return (
     <>
+      <HomeScrollProgress />
       <HomeHero dictionary={dictionary} locale={locale} />
-      <Container>
-        <SelectedWorks
-          dictionary={dictionary}
-          locale={locale}
-          projects={featuredProjects}
-        />
-        <BuildProcess dictionary={dictionary} />
-        <CapabilityPreview dictionary={dictionary} />
-        <ProofPreview dictionary={dictionary} />
-        <AboutPreview dictionary={dictionary} locale={locale} />
-      </Container>
-      <ContactFinale dictionary={dictionary} locale={locale} />
+      <HomeAboutProfile locale={locale} />
+      <PortfolioHome dictionary={dictionary} locale={locale} projects={getProjects()} />
     </>
   );
 }

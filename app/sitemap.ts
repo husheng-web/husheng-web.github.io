@@ -4,6 +4,8 @@ import { projects } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 import { locales } from "@/lib/i18n";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = ["", "/projects", "/about", "/resume"];
 

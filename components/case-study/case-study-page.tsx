@@ -38,9 +38,9 @@ export function CaseHero({
   const title = displayTitle ?? getLocalizedText(project.title, locale);
   const category = project.categories?.[0];
   return (
-    <section className="border-b border-[var(--border)] py-[clamp(4rem,9vw,8rem)]">
+    <section className="case-hero">
       <Container>
-        <div className="grid gap-8 border-t border-[var(--border)] pt-4 md:grid-cols-[minmax(6rem,0.5fr)_minmax(0,2fr)]">
+        <div className="case-hero__grid">
           <p className="type-label text-[var(--accent-signal)]">
             {String(project.archiveIndex).padStart(2, "0")}
           </p>
@@ -75,7 +75,7 @@ export function CaseStudyPending({
   return (
     <>
       <CaseHero locale={locale} project={project} />
-      <Container as="section" size="reading" className="py-[var(--space-section)]">
+      <Container as="section" size="reading" className="case-pending">
         <p className="type-body-large text-[var(--foreground-secondary)]">
           {dictionary.projects.caseStudyInProgress}
         </p>

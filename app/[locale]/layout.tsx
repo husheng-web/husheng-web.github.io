@@ -42,7 +42,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         </a>
         <SiteHeader dictionary={dictionary} locale={locale} />
         <main id="main-content">{children}</main>
-        <SiteFooter dictionary={dictionary} />
+        <SiteFooter dictionary={dictionary} locale={locale} />
       </body>
     </html>
   );

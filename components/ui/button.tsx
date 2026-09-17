@@ -18,15 +18,15 @@ interface ButtonLinkProps extends SharedButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--accent-action)] text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]",
+    "bg-[var(--accent-action)] text-[var(--accent-foreground)] hover:bg-[var(--foreground-secondary)]",
   secondary:
-    "border border-[var(--border-strong)] bg-transparent text-[var(--foreground)] hover:border-[var(--foreground)]",
+    "border border-[var(--border-strong)] bg-transparent text-[var(--foreground)] hover:bg-[var(--surface-linen)]",
   quiet:
     "bg-transparent text-[var(--foreground)] hover:text-[var(--accent-interactive-hover)]",
 };
 
 const shared =
-  "inline-flex min-h-11 items-center justify-center gap-2 px-4 font-mono text-[var(--type-label)] tracking-[var(--tracking-label)] uppercase transition-[background-color,border-color,color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] active:translate-y-px";
+  "inline-flex min-h-11 items-center justify-center gap-2 px-5 font-medium text-sm transition-[background-color,border-color,color,transform] duration-[var(--motion-fast)] ease-[var(--ease-standard)] active:translate-y-px";
 
 export function Button({
   children,

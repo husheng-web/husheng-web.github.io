@@ -2,6 +2,8 @@ import type { Dictionary } from "@/types/content";
 
 export const zhDictionary = {
   navigation: {
+    brandName: "胡昇",
+    brandRole: "AI 产品设计师",
     home: "首页",
     projects: "项目",
     about: "关于",
@@ -32,9 +34,10 @@ export const zhDictionary = {
   home: {
     heroLabel: "产品作品集",
     heroTitle: "设计并构建 AI 产品与智能服务系统",
-    heroSupporting: "关注 AI 产品、智能服务系统与从概念到可运行原型的完整构建。",
+    heroSupporting:
+      "你好，我是胡昇，一名 AI 产品设计师。我关注如何将复杂的 AI 能力，转化为清晰、易用，并能够创造真实价值的产品体验。",
     heroSecondary: "产品与服务设计",
-    viewSelectedWork: "查看精选项目",
+    viewSelectedWork: "查看我的项目",
     sectionLabels: {
       selectedWorks: "精选项目",
       howIBuild: "构建方法",
@@ -46,7 +49,7 @@ export const zhDictionary = {
     sectionTitles: {
       selectedWorks: "项目档案",
       howIBuild: "从问题到可运行产品",
-      capabilities: "能力需要由证据支撑",
+      capabilities: "从洞察到交付的产品能力",
       proof: "实践记录",
       about: "AI 产品构建者",
       contact: "继续了解这套作品集系统",
@@ -88,7 +91,7 @@ export const zhDictionary = {
     featuredDescription: "当前优先整理的四个项目。",
     indexLabel: "完整索引",
     indexTitle: "全部项目",
-    indexDescription: "10 个项目的可扫描档案索引。",
+    indexDescription: "按项目编号整理的完整作品档案。",
     indexUniformPendingNote: "当前项目案例均在整理中。",
     projectCountLabel: "个项目",
     caseStudyInProgress: "案例整理中",

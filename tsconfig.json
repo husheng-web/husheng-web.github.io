@@ -29,5 +29,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "作品集文件"]
+  "exclude": ["node_modules", "feishu-husheng-portfolio", "tmp-chrome-*", "作品集文件"]
 }

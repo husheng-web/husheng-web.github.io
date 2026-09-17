@@ -10,7 +10,7 @@ The Projects route is the portfolio's complete evidence archive. It makes the re
 
 1. `01` Project Archive: factual archive framing and project count.
 2. `02` Featured Projects: the four Registry records marked `featured: true`.
-3. `03` Complete Project Index: all ten Registry records in a compact archive format.
+3. `03` Complete Project Index: all Registry records in an image-first archive format.
 
 ## Featured Logic
 
@@ -22,11 +22,11 @@ Featured work is obtained through `getFeaturedProjects()`. Its preview is a prog
 
 ## ADR - Projects Archive Duplication Strategy
 
-**Option selected:** Featured 4 plus Complete Index 10.
+**Option selected:** Featured 4 plus Complete Index.
 
-**Reason:** Featured work needs a richer, interactive reading entrance, while the complete index proves the breadth of the archive. The index uses a deliberately compact row format so the repeated four records do not recreate the featured composition.
+**Reason:** Featured work needs a richer, interactive reading entrance, while the complete index proves the breadth of the archive. Both sections use an image-first gallery, but the complete index remains the broader scan layer.
 
-**Tradeoff:** The four featured records appear twice. The index is the canonical scan layer and remains compact enough to avoid visual repetition.
+**Tradeoff:** The four featured records appear twice. The index is the canonical scan layer, and visual cover media improves quick browsing without implying that every case study is complete.
 
 **Future impact:** Once real case media and metadata arrive, the featured presentation can become richer without changing registry identity or the all-projects index.
 
@@ -35,7 +35,7 @@ Featured work is obtained through `getFeaturedProjects()`. Its preview is a prog
 - `data/projects.ts` is the single source of truth.
 - `archiveIndex` is a stable archive identity, not a current UI position.
 - A missing English title displays the original supplied Chinese title. It does not trigger automatic translation.
-- Categories, year, roles, tags, media, outcomes, and links render only after the owner provides and approves them.
+- Categories, year, roles, tags, outcomes, and links render only after the owner provides and approves them. Cover media may be derived from source files the owner explicitly supplies for this portfolio.
 
 ## Status Presentation and CTA Rules
 
@@ -49,14 +49,13 @@ Pending project detail routes are not linked from the archive or listed in the s
 
 ## Media Rules
 
-The featured preview is a flexible media container, not a universal cover template. It may later contain an approved cover, UI screenshot, industrial render, poster, diagram, video poster, or neutral pending state for an individual project without media.
+The archive uses an image-first gallery inspired by Behance's browsing pattern, while retaining the portfolio's own typography and visual tokens. A card may contain an owner-supplied cover, UI screenshot, industrial render, poster, diagram, video poster, or a neutral pending state when no source media exists.
 
 ## Preview Availability Rule
 
-- **0 approved featured media:** render the Featured list in full-width archive mode. Do not show a large neutral media container.
-- **At least 1 approved featured media:** render the approved Archive List plus Fixed Preview layout. A hovered or focused featured project without its own media may use the restrained neutral state.
-
-The Preview API, keyboard focus behavior, and media mapping remain in place in both states. The no-media layout changes only the presentation condition, not the future interaction contract.
+- A project with owner-supplied media renders that cover in its gallery card.
+- A project without source media renders a restrained neutral card with its stable archive index.
+- The neutral card is an honest absence state, not a fabricated cover or a claim that the underlying case study is complete.
 
 ## Repeated Pending-State Presentation Rule
 
@@ -68,7 +67,7 @@ The archive does not render category filters until at least 6-8 projects have ap
 
 ## Responsive Rules
 
-Featured work uses a list and stable side preview at desktop widths. The complete index is compact and vertically scannable on mobile. No project interaction depends on pointer hover.
+Featured work uses a two-column gallery at desktop widths. The complete index uses a three-column gallery at large desktop widths, two columns at tablet width, and one column on mobile. No project interaction depends on pointer hover.
 
 ## Motion Rules
 
