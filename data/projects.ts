@@ -314,6 +314,37 @@ export const projects = [
       height: 941,
     },
   },
+  {
+    archiveIndex: 14,
+    slug: "tattoo-industry",
+    title: {
+      zh: "纹身企业战略创新规划研究",
+      en: "Tattoo Enterprise Strategic Innovation Planning Research",
+    },
+    summary: {
+      zh: "围绕纹身用户、服务生命周期与企业战略的创新规划研究。",
+      en: "A strategic innovation study of tattoo services across the user lifecycle.",
+    },
+    categories: ["服务系统"],
+    caseDocument: {
+      pageCount: 22,
+      pageWidth: 2560,
+      pageHeight: 1440,
+      presentation: "continuous",
+    },
+    featured: false,
+    contentStatus: "partial",
+    translationStatus: "pending",
+    cover: {
+      src: "/media/projects/tattoo-industry/cover-imagegen.png",
+      alt: {
+        zh: "纹身企业战略创新规划研究封面",
+        en: "Tattoo enterprise strategic innovation planning research cover",
+      },
+      width: 1672,
+      height: 941,
+    },
+  },
 ] satisfies Project[];
 
 export function getProjectBySlug(slug: string): Project | undefined {
