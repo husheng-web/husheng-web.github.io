@@ -28,7 +28,7 @@ export const projects = [
     contentStatus: "partial",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/pinlvtu/cover-imagegen.png",
+      src: "/media/projects/pinlvtu/cover-imagegen.webp",
       alt: { zh: "拼旅途旅行积木视觉封面", en: "Trip Compose journey-block cover" },
       width: 1672,
       height: 941,
@@ -53,7 +53,7 @@ export const projects = [
     contentStatus: "partial",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/hepai-pro/cover-imagegen.png",
+      src: "/media/projects/hepai-pro/cover-imagegen.webp",
       alt: {
         zh: "和拍 Pro 人机协作摄影社区视觉封面",
         en: "Hepai Pro human-AI photography community cover",
@@ -78,7 +78,7 @@ export const projects = [
     contentStatus: "partial",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/academic-assistant/cover-imagegen.png",
+      src: "/media/projects/academic-assistant/cover-imagegen.webp",
       alt: {
         zh: "AI 学术助手研究证据工作台视觉封面",
         en: "AI Academic Assistant research workspace cover",
@@ -107,7 +107,7 @@ export const projects = [
     contentStatus: "partial",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/ixdc-website/cover-imagegen.png",
+      src: "/media/projects/ixdc-website/cover-imagegen.webp",
       alt: {
         zh: "国际体验设计奖策展展厅视觉封面",
         en: "IXDC eXperience Award exhibition cover",
@@ -130,7 +130,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/tea-seed-shampoo/cover-imagegen.png",
+      src: "/media/projects/tea-seed-shampoo/cover-imagegen.webp",
       alt: {
         zh: "茶枯洗发茶籽洗护装置视觉封面",
         en: "Tea Seed Shampoo care-device cover",
@@ -153,7 +153,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/diverse-community/cover-imagegen.png",
+      src: "/media/projects/diverse-community/cover-imagegen.webp",
       alt: {
         zh: "多元社区包容性服务系统视觉封面",
         en: "Diverse Community service-system cover",
@@ -176,7 +176,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/sea-turtle-rescue/cover-imagegen.png",
+      src: "/media/projects/sea-turtle-rescue/cover-imagegen.webp",
       alt: {
         zh: "海龟救助水下救援工具视觉封面",
         en: "Sea Turtle Rescue underwater-tool cover",
@@ -199,7 +199,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/service-product-system/cover-imagegen.png",
+      src: "/media/projects/service-product-system/cover-imagegen.webp",
       alt: {
         zh: "助农金灶桑葚服务生态视觉封面",
         en: "Mulberry agriculture service ecosystem cover",
@@ -222,7 +222,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/kids-swimming-aid/cover-imagegen.png",
+      src: "/media/projects/kids-swimming-aid/cover-imagegen.webp",
       alt: {
         zh: "儿童游泳辅具产品视觉封面",
         en: "Children's Swim Aid product cover",
@@ -245,7 +245,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/smart-comb/cover-imagegen.png",
+      src: "/media/projects/smart-comb/cover-imagegen.webp",
       alt: { zh: "智能梳子精密护理产品视觉封面", en: "Smart Comb product cover" },
       width: 1672,
       height: 941,
@@ -265,7 +265,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/muscle-motion/cover-imagegen.png",
+      src: "/media/projects/muscle-motion/cover-imagegen.webp",
       alt: { zh: "肌动派运动社群视觉封面", en: "Muscle Motion community cover" },
       width: 1672,
       height: 941,
@@ -285,7 +285,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/baomi-tuanzi/cover-imagegen.png",
+      src: "/media/projects/baomi-tuanzi/cover-imagegen.webp",
       alt: { zh: "苞米团子文创毛绒视觉封面", en: "Corn Buddy plush character cover" },
       width: 1672,
       height: 941,
@@ -305,7 +305,7 @@ export const projects = [
     contentStatus: "content-pending",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/dolphin-neck-pillow/cover-imagegen.png",
+      src: "/media/projects/dolphin-neck-pillow/cover-imagegen.webp",
       alt: {
         zh: "软萌萌海豚 U 型枕视觉封面",
         en: "Soft Dolphin U-Pillow cover",
@@ -336,7 +336,7 @@ export const projects = [
     contentStatus: "partial",
     translationStatus: "pending",
     cover: {
-      src: "/media/projects/tattoo-industry/cover-imagegen.png",
+      src: "/media/projects/tattoo-industry/cover-imagegen.webp",
       alt: {
         zh: "纹身企业战略创新规划研究封面",
         en: "Tattoo enterprise strategic innovation planning research cover",
