@@ -44,13 +44,13 @@ export const projects = [
     },
     categories: ["AI 产品"],
     caseDocument: {
-      pageCount: 18,
+      pageCount: 44,
       pageWidth: 2560,
-      pageHeight: 2000,
+      pageHeight: 1440,
       presentation: "continuous",
     },
     featured: true,
-    contentStatus: "content-pending",
+    contentStatus: "partial",
     translationStatus: "pending",
     cover: {
       src: "/media/projects/hepai-pro/cover-imagegen.png",
